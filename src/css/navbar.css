@@ -1,241 +1,330 @@
+/* Home navbar */
 .home-navbar {
     width: 100%;
-    height: 773px;
+    height: 800px;
     display: flex;
-    background: url("/public/img/banner.webp");
+    background: url("/public/img/jewelry.jpg");
     background-size: cover;
+    background-position: top;
 }
 
-.home-navbar .navbar-container {
-    margin-top: 55px;
-    height: 642px;
+.home-navbar .navbar-container .name-left {
+    position: absolute;
+    width: 350px;
+    height: 100px;
+    margin-top: 400px;
+    font-size: 80px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
 }
 
-.home-navbar .navbar-container .menu {
-    height: 50px;
+.home-navbar .navbar-container .name-right {
+    position: absolute;
+    width: 450px;
+    height: 100px;
+    margin-top: 400px;
+    margin-left: 900px;
+    font-size: 80px;
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: white;
+}
+
+.home-navbar .navbar-container .top-bar {
+    width: 100%;
+    height: 80px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.home-navbar .navbar-container .menu .barnd-logo {
-    width: 125px;
-    height: 30px;
-}
-
-.home-navbar .navbar-container .menu .links {
-    min-width: 700px;
+.home-navbar .navbar-container .top-bar .left-bar {
+    width: 700px;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.home-navbar .navbar-container .menu .links .login-button {
-    background: #3776CC;
-    color: #f8f8ff;
+.home-navbar .navbar-container .top-bar .left-bar .aureum {
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
 }
 
-.home-navbar .navbar-container .menu .user-avatar {
+.home-navbar .navbar-container .top-bar .left-bar .store {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.home-navbar .navbar-container .top-bar .left-bar .watch {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.home-navbar .navbar-container .top-bar .left-bar .jewelry {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.home-navbar .navbar-container .top-bar .left-bar .help {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.home-navbar .navbar-container .top-bar .left-bar .buy {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.home-navbar .navbar-container .top-bar .right-bar {
+    width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.home-navbar .navbar-container .top-bar .right-bar .like-save {
     width: 50px;
-    height: 50px;
+    height: 25px;
+    margin-top: 11px;
+    margin-right: -6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-navbar .navbar-container .top-bar .right-bar .signup-login {
+    width: 130px;
+    height: 25px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-navbar .navbar-container .top-bar .right-bar .like-save .like-link {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.home-navbar .navbar-container .top-bar .right-bar .like-save .save-link {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.home-navbar .navbar-container .top-bar .right-bar .signup-login .signup-link {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.home-navbar .navbar-container .top-bar .right-bar .signup-login .login-link {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.home-navbar .navbar-container .top-bar .right-bar .like-save .like-link {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.home-navbar .navbar-container .top-bar .right-bar .my {
+    width: 40px;
+    height: 40px;
+    margin-left: 50px;
     border-radius: 24px;
 }
-
-.home-navbar a {
-    text-decoration: none;
-}
-
-.home-navbar .hover-line a {
-    color: #f8f8ff;
-    z-index: 100;
-}
-
-.home-navbar .underline {
-    display: block;
-    content: "";
-    border-bottom: solid 2px #d7b668;
-}
-
-.home-navbar .hover-line:after {
-    display: block;
-    content: "";
-    border-bottom: solid 2px #d7b668;
-    transform: scaleX(0);
-    transition: transform 250ms ease-in-out;
-}
-
-.home-navbar .hover-line:hover:after {
-    transform: scaleX(1);
-}
-
-.home-navbar div.hover-line:after {
-    transform-origin: 0% 50%;
-}
-
-/* Detail */
-.home-navbar .navbar-container .header-frame {
-    margin-top: 142px;
-    height: 462px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.home-navbar .navbar-container .header-frame .detail {
-    width: 510px;
-    display: flex;
-    flex-direction: column;
-}
-
-.home-navbar .navbar-container .header-frame .detail .head-main-txt {
-    width: 450px;
-    height: 150px;
-    font-family: "Roboto Serif";
-    font-size: 50px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: normal;
-    letter-spacing: -0.75px;
-    color: #f8f8ff;
-}
-
-.home-navbar .navbar-container .header-frame .detail .wel-txt {
-    width: 510px;
-    height: 42px;
-    font-family: "Roboto Serif";
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.54px;
-    color: #d7b668;
-}
-
-.home-navbar .navbar-container .header-frame .detail .service-txt {
-    margin-top: 23px;
-    width: 153px;
-    height: 23px;
-    font-family: "Roboto Serif";
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: -0.3px;
-    color: #d5d5d5;
-}
-
-.home-navbar .navbar-container .detail .signup {
-    margin-top: 73px;
-}
-
-.home-navbar .navbar-container .header-frame .detail .signup .signup-button {
-    width: 210px;
-    height: 60px;
-    border-radius: 4px;
-    background: #1976d2;
-    text-align: center;
-    font-family: Poppins;
-    font-size: 17px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    color: #f8f8ff;
-}
-
-.home-navbar .navbar-container .logo-frame {
-    margin-top: 43px;
-    width: 690px;
-    height: 419px;
-}
-
-.home-navbar .navbar-container .logo-frame .logo-img {
-    width: 100%;
-    height: 100%;
-    background: url("/public/img/logo.webp");
-    background-size: contain;
-    background-repeat: no-repeat;
-    filter: invert(25%);
-}
-
-
 
 /* Other Navbar */
 .other-navbar {
     width: 100%;
     height: 400px;
     display: flex;
-    background: url("/public/img/banner.webp");
+    background: url("/public/img/fon2.jpg");
     background-size: cover;
+    background-position: center;
 }
 
-.other-navbar .navbar-container {
-    margin-top: 55px;
-
-}
-
-.other-navbar .navbar-container .menu {
-    height: 50px;
+.other-navbar .other-container .top-bar {
+    width: 100%;
+    height: 80px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.other-navbar .navbar-container .menu .barnd-logo {
-    width: 125px;
-    height: 30px;
-}
-
-.other-navbar .navbar-container .menu .links {
-    min-width: 700px;
+.other-navbar .other-container .top-bar .left {
+    width: 700px;
+    height: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
 
-.other-navbar .navbar-container .menu .links .login-button {
-    background: #3776CC;
-    color: #f8f8ff;
+.other-navbar .other-container .top-bar .left .aureum {
+    font-size: 36px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
 }
 
-.other-navbar .navbar-container .menu .user-avatar {
+.other-navbar .other-container .top-bar .left .store {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.other-navbar .other-container .top-bar .left .watch {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.other-navbar .other-container .top-bar .left .jewelry {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.other-navbar .other-container .top-bar .left .help {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.other-navbar .other-container .top-bar .left .buy {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.other-navbar .other-container .top-bar .right {
+    width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.other-navbar .other-container .top-bar .right .like-save {
     width: 50px;
-    height: 50px;
+    height: 25px;
+    margin-top: 11px;
+    margin-right: -6px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.other-navbar .other-container .top-bar .right .signup-login {
+    width: 130px;
+    height: 25px;
+    margin-right: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.other-navbar .other-container .top-bar .right .like-save .like-link {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.other-navbar .other-container .top-bar .right .like-save .save-link {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.other-navbar .other-container .top-bar .right .signup-login .signup-link {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.other-navbar .other-container .top-bar .right .signup-login .login-link {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.other-navbar .other-container .top-bar .right.like-save .like-link {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.other-navbar .other-container .top-bar .right .my {
+    width: 40px;
+    height: 40px;
+    margin-left: 50px;
     border-radius: 24px;
 }
 
-.other-navbar a {
-    text-decoration: none;
+.other-navbar .other-container .text .text-big {
+    position: absolute;
+    top: 150px;
+    right: 900px;
+    font-size: 60px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    text-wrap: nowrap;
 }
 
-.other-navbar .hover-line a {
-    color: #f8f8ff;
-    z-index: 100;
-}
-
-.other-navbar .underline {
-    display: block;
-    content: "";
-    border-bottom: solid 2px #d7b668;
-}
-
-.other-navbar .hover-line:after {
-    display: block;
-    content: "";
-    border-bottom: solid 2px #d7b668;
-    transform: scaleX(0);
-    transition: transform 250ms ease-in-out;
-}
-
-.other-navbar .hover-line:hover:after {
-    transform: scaleX(1);
-}
-
-.other-navbar div.hover-line:after {
-    transform-origin: 0% 50%;
+.other-navbar .other-container .text .text-small {
+    position: absolute;
+    top: 230px;
+    right: 980px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    text-wrap: nowrap;
 }
 
 /* BASKET */
@@ -249,22 +338,22 @@
     flex-direction: column;
     background: #f8f8ff;
     border-radius: 16px;
-  }
-  
-  .basket-frame .all-check-box {
+}
+
+.basket-frame .all-check-box {
     padding: 0px 6px;
     width: 100%;
     height: 35px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    background: #d7b586;
+    background: white;
     border-width: 1px 0px;
     border-style: solid;
     border-color: #343434;
-  }
-  
-  .basket-frame .basket-info-box {
+}
+
+.basket-frame .basket-info-box {
     position: relative;
     margin-top: 6px;
     width: 100%;
@@ -272,16 +361,16 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-  }
-  
-  .basket-info-box .product-img {
+}
+
+.basket-info-box .product-img {
     width: 60px;
     height: 60px;
     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
     border-radius: 29px;
-  }
-  
-  .basket-info-box .product-name {
+}
+
+.basket-info-box .product-name {
     margin-left: 11px;
     width: 185px;
     font-family: "Poppins";
@@ -290,9 +379,9 @@
     font-size: 20px;
     line-height: 30px;
     color: #000000;
-  }
-  
-  .basket-info-box .product-price {
+}
+
+.basket-info-box .product-price {
     width: 80px;
     font-family: "Poppins";
     font-style: normal;
@@ -300,25 +389,24 @@
     font-size: 15px;
     line-height: 22px;
     color: #ae0000;
-  }
-  
-  .basket-info-box
-    .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+}
+
+.basket-info-box .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
     padding: 6.5px 14px;
-  }
-  
-  .basket-info-box .css-ece9u5 {
+}
+
+.basket-info-box .css-ece9u5 {
     min-width: 72px;
-  }
-  
-  .basket-frame .cancel-btn {
+}
+
+.basket-frame .cancel-btn {
     position: absolute;
     top: 33%;
     right: 2%;
     cursor: pointer;
-  }
-  
-  .basket-frame .basket-order {
+}
+
+.basket-frame .basket-order {
     margin-top: 10px;
     width: 100%;
     height: 64px;
@@ -327,9 +415,9 @@
     justify-content: space-evenly;
     align-items: center;
     border-top: 1px solid rgba(0, 0, 0, 0.5);
-  }
-  
-  .basket-order .price {
+}
+
+.basket-order .price {
     width: 200px;
     display: flex;
     font-family: "Poppins";
@@ -338,9 +426,9 @@
     font-size: 20px;
     line-height: 30px;
     color: #000000;
-  }
-  
-  .basket-frame .orders-wrapper {
+}
+
+.basket-frame .orders-wrapper {
     position: relative;
     overflow: hidden;
     width: 100%;
@@ -348,22 +436,22 @@
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-  }
-  
-  .basket-frame .orders-wrapper::-webkit-scrollbar {
+}
+
+.basket-frame .orders-wrapper::-webkit-scrollbar {
     width: 10px;
-  }
-  
-  .basket-frame .orders-wrapper::-webkit-scrollbar-thumb {
+}
+
+.basket-frame .orders-wrapper::-webkit-scrollbar-thumb {
     background-color: #888;
     border-radius: 5px;
-  }
-  
-  .basket-frame .orders-wrapper::-webkit-scrollbar-track {
+}
+
+.basket-frame .orders-wrapper::-webkit-scrollbar-track {
     background: #f1f1f1;
-  }
-  
-  .basket-frame .orders-main-wrapper {
+}
+
+.basket-frame .orders-main-wrapper {
     position: relative;
     overflow: hidden;
     margin-top: 10px;
@@ -371,5 +459,4 @@
     height: 260px;
     display: flex;
     flex-direction: column;
-  }
-  
+}
