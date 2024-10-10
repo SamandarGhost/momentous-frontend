@@ -12,7 +12,7 @@ export default function Advertisement() {
                 playsInline
                 data-video-media=""
             >
-                <source type="video/mp4" src="video/livewatch.mp4" />
+                <source type="video/mp4" src="video/other.mp4" />
             </video>
         </div>
     );

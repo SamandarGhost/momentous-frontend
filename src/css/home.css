@@ -4,99 +4,372 @@
   background-color: #F8F8FF;
 }
 
-/* * Statistics * */
-.homepage .static-frame {
+/* * Category Jewelries * */
+.homepage .category {
   width: 100%;
-  height: 200px;
-  background: rgb(250, 246, 241);
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.homepage .static-frame .info {
-  height: 100%;
+.homepage .category .category-list {
+  width: 100%;
+  height: auto;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homepage .category .category-list .main-text {
+  text-align: center;
+  font-family: "Roboto Serif";
+  font-size: 52px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 20px;
+  color: #000;
+}
+
+.homepage .category .category-list .category-main {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.homepage .static-frame .info .static-box {
-  width: 200px;
-  height: 116px;
+.homepage .category .category-list .category-main .category-1 {
+  width: 310px;
+  height: 500px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
-.homepage .static-frame .info .static-box .static-num {
-  text-align: center;
-  font-family: "Poppins";
-  font-size: 54px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 80px;
+.homepage .category .category-list .category-main .category-1 .card-view {
+  width: 306px;
+  height: 450px;
+  background: url("/public/img/earings.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.homepage .category .category-list .category-main .category-1 .card-view2 {
+  width: 306px;
+  height: 450px;
+  background: url("/public/img/neckleces.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.homepage .category .category-list .category-main .category-1 .card-view3 {
+  width: 306px;
+  height: 450px;
+  background: url("/public/img/rings.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.homepage .category .category-list .category-main .category-1 .card-view4 {
+  width: 306px;
+  height: 450px;
+  background: url("/public/img/bracelets.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.homepage .category .category-list .category-main .category-1 .text-category {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(249, 247, 239);
+}
+
+.homepage .category .category-list .category-main .category-1 .card-text .bracelets {
+  width: 100%;
+  height: 80px;
+  font-size: 32px;
+  font-weight: 100;
+  font-family: 'Courier New', Courier, monospace;
   color: black;
 }
 
-.homepage .static-frame .info .static-box .static-text {
+/* Category Watch */
+.homepage .category-watch {
+  width: 100%;
+  height: auto;
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homepage .category-watch .category-list {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homepage .category-watch .category-list .main-text {
   text-align: center;
-  font-family: "Poppins";
-  font-size: 20px;
+  font-family: "Roboto Serif";
+  font-size: 52px;
   font-style: normal;
   font-weight: 500;
-  line-height: 30px;
-  color: #d7b686;
+  line-height: normal;
+  letter-spacing: 20px;
+  color: #000;
+}
+
+.homepage .category-watch .category-list .category-main {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homepage .category-watch .category-list .category-main .category-1 {
+  width: 310px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homepage .category-watch .category-list .category-main .category-1 .card-view {
+  width: 306px;
+  height: 450px;
+  background: url("/public/img/analuge.webp");
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(249, 247, 239);
+}
+
+.homepage .category-watch .category-list .category-main .category-1 .card-view2 {
+  width: 306px;
+  height: 450px;
+  background: url("/public/img/hybridWatch.webp");
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(249, 247, 239);
+}
+
+.homepage .category-watch .category-list .category-main .category-1 .card-view3 {
+  width: 306px;
+  height: 450px;
+  background: url("/public/img/casioPng.png");
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(249, 247, 239);
+}
+
+.homepage .category-watch .category-list .category-main .category-1 .card-view4 {
+  width: 306px;
+  height: 450px;
+  background: url("/public/img/automaticWatch.webp");
+  background-size: cover;
+  background-position: center;
+  background-color: rgb(249, 247, 239);
+}
+
+.homepage .category-watch .category-list .category-main .category-1 .text-category {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgb(249, 247, 239);
+}
+
+.homepage .category-watch .category-list .category-main .category-1 .card-text .watch {
+  width: 100%;
+  height: 80px;
+  font-size: 32px;
+  font-weight: 100;
+  font-family: 'Courier New', Courier, monospace;
+  color: black;
 }
 
 
-/* * PopularDishes * */
-.homepage .popular-dishes-frame {
+/* * Trend Jewelries * */
+.homepage .trend-jewelry-frame {
   width: 100%;
-  height: 580px;
+  height: 700px;
   display: flex;
   background: #f8f8ff;
 }
 
-.homepage .popular-dishes-frame .popular-section {
-  margin-top: 45px;
+.homepage .trend-jewelry-frame .trand-section {
+  width: 100%;
+  height: auto;
+  margin-top: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.homepage .popular-dishes-frame .popular-section .category-title {
+.homepage .trend-jewelry-frame .trand-section .category-title {
   text-align: center;
+  margin-right: 890px;
   font-family: "Roboto Serif";
   font-size: 36px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  letter-spacing: 1.44px;
+  letter-spacing: 5px;
   color: #000;
 }
 
-.homepage .popular-dishes-frame .popular-section .cards-frame {
+.homepage .trend-jewelry-frame .trand-section .category-small {
+  text-align: center;
+  margin-right: 790px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-family: "Roboto Serif";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  letter-spacing: 5px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
+
+.homepage .trend-jewelry-frame .trand-section .cards-frame {
   width: 100%;
-  margin-top: 43px;
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
 }
 
-.homepage .popular-dishes-frame .cards-frame .card {
-  min-height: 430px;
-  min-width: 300px;
-  cursor: pointer;
+.homepage .trend-jewelry-frame .trand-section .cards-frame .card {
+  width: 300px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 3px rgb(249, 247, 239);
+  background-color: #F8F8FF;
 }
 
-.homepage .popular-dishes-frame .cards-frame .card .card-cover {
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.4),
-      rgba(0, 0, 0, 0) 200px),
-    linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0) 300px);
+.homepage .trend-jewelry-frame .trand-section .cards-frame .card .buttons {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.homepage .popular-dishes-frame .no-data {
+.homepage .trend-jewelry-frame .trand-section .cards-frame .card .buttons .add-to {
+  width: 120px;
+  height: 20px;
+  text-wrap: nowrap;
+  background: #e3c08d;
+  border-radius: 2rem
+}
+
+.homepage .trend-jewelry-frame .trand-section .cards-frame .card .buttons .views {
+  width: 120px;
+  height: 20px;
+  margin-right: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage .trend-jewelry-frame .trand-section .cards-frame .card .card-img .img {
+  width: 100%;
+  height: 350px;
+}
+
+.homepage .trend-jewelry-frame .trand-section .cards-frame .card .info-list {
+  width: 100%;
+  height: 46px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.homepage .trend-jewelry-frame .trand-section .cards-frame .card .info-list .info {
+  width: 100%;
+  height: 15px;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homepage .trend-jewelry-frame .trand-section .cards-frame .card .info-list .info .jewelry-name {
+  font-family: "Roboto Serif";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 5px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
+.homepage .trend-jewelry-frame .trand-section .cards-frame .card .info-list .info .jewelry-price {
+  font-family: "Roboto Serif";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  letter-spacing: 5px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
+.homepage .trend-jewelry-frame .trand-section .cards-frame .card .info-list .info .jewelry-material {
+  font-family: "Roboto Serif";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  letter-spacing: 5px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
+.homepage .trend-jewelry-frame .trand-section .cards-frame .card .info-list .info .yes {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+
+.homepage .trend-jewelry-frame .trand-section .cards-frame .card .info-list .info .yes .star {
+  width: 15px;
+  height: 15px;
+}
+
+
+
+.homepage .trend-jewelry-frame .no-data {
   width: 100%;
   height: 300px;
   display: flex;
@@ -111,108 +384,170 @@
   color: #e3c08d;
 }
 
-
-
-/* NEW PRODUCTS*/
-.homepage .new-products-frame {
+/* * Popular Watches * */
+.homepage .popular-watch-frame {
   width: 100%;
-  height: 605px;
-  background: #f8f8ff;
+  height: 700px;
+  margin-top: 100px;
+  margin-bottom: 100px;
   display: flex;
+  background: #f8f8ff;
 }
 
-.homepage .main {
-  margin-top: 45px;
+.homepage .popular-watch-frame .trand-section {
+  width: 100%;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.homepage .new-products-frame .category-title {
-  margin-top: 50px;
-  font-family: "Dancing Script";
-  font-style: normal;
-  font-weight: 700;
+.homepage .popular-watch-frame .trand-section .category-title {
+  text-align: center;
+  margin-left: -900px;
+  font-family: "Roboto Serif";
   font-size: 36px;
-  line-height: 43px;
-}
-
-.homepage .new-products-frame .main .cards-frame {
-  width: 100%;
-  margin: 5px 2px 2px 2px;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.homepage .new-products-frame .main .card {
-  height: 335px;
-  width: 290px;
-  cursor: pointer;
-}
-
-.homepage .new-products-frame .product-sale {
-  position: absolute;
-  margin-top: 10px;
-  z-index: 100;
-  width: 90px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #ff9200;
-  box-shadow: 4px 6px 20px rgba(0, 0, 0, 0.1);
-  border-radius: 25px;
-  font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
-  font-size: 12px;
-  line-height: 21px;
-  color: #f8f8ff;
+  line-height: normal;
+  letter-spacing: 5px;
+  color: #000;
 }
 
-.homepage .new-products-frame .product-detail {
-  width: auto;
-  height: 49%;
-  display: flex;
-  justify-content: center;
-  margin-top: -12px;
-  border-top: 1px solid;
-  border-color: #f8f8ff;
-  background-color: #fafbfb;
+.homepage .popular-watch-frame .trand-section .category-small {
+  text-align: start;
+  margin-left: -500px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-family: "Roboto Serif";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  letter-spacing: 5px;
+  text-wrap: nowrap;
+  color: #000;
 }
 
-.homepage .new-products-frame .product-detail .info {
+
+.homepage .popular-watch-frame .trand-section .cards-frame {
   width: 100%;
+  height: auto;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-.homepage .new-products-frame .product-detail .title {
-  width: 65px;
-  font-weight: 500;
-}
-
-.homepage .new-products-frame .product-detail .price {
-  margin-left: 10px;
-  width: 20px;
-  font-weight: 500;
-}
-
-.homepage .new-products-frame .product-detail .divider {
-  margin: 0 10px 0 10px;
-  width: 2px;
-  background-color: #d9d9d9;
-}
-
-.homepage .new-products-frame .product-detail .views {
+.homepage .popular-watch-frame .trand-section .cards-frame .card {
+  width: 300px;
+  height: 480px;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  font-weight: 500;
+  border: solid 1px black;
+  background-color: #F8F8FF;
 }
 
-.homepage .new-products-frame .no-data {
+.homepage .popular-watch-frame .trand-section .cards-frame .card .buttons {
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.homepage .popular-watch-frame .trand-section .cards-frame .card .buttons .add-to {
+  width: 120px;
+  height: 20px;
+  text-wrap: nowrap;
+  background: #e3c08d;
+  border-radius: 2rem
+}
+
+.homepage .popular-watch-frame .trand-section .cards-frame .card .buttons .views {
+  width: 120px;
+  height: 20px;
+  margin-right: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage .popular-watch-frame .trand-section .cards-frame .card .card-img .img {
+  width: 100%;
+  height: 350px;
+}
+
+.homepage .popular-watch-frame .trand-section .cards-frame .card .info-list {
+  width: 100%;
+  height: 46px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.homepage .popular-watch-frame .trand-section .cards-frame .card .info-list .info {
+  width: 100%;
+  height: 15px;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homepage .popular-watch-frame .trand-section .cards-frame .card .info-list .info .watch-name {
+  font-family: "Roboto Serif";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 5px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
+.homepage .popular-watch-frame .trand-section .cards-frame .card .info-list .info .watch-price {
+  font-family: "Roboto Serif";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  letter-spacing: 5px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
+.homepage .popular-watch-frame .trand-section .cards-frame .card .info-list .info .watch-func {
+  font-family: "Roboto Serif";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  letter-spacing: 5px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
+.homepage .popular-watch-frame .trand-section .cards-frame .card .info-list .info .yes {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+
+.homepage .popular-watch-frame .trand-section .cards-frame .card .info-list .info .yes .star {
+  width: 15px;
+  height: 15px;
+}
+
+
+
+.homepage .popular-watch-frame .no-data {
   width: 100%;
   height: 300px;
   display: flex;
@@ -247,35 +582,53 @@
 }
 
 /* * ACTIVE USERS* */
-.homepage .active-users-frame {
+.homepage .active-users {
   width: 100%;
-  height: 550px;
+  height: 700px;
+  margin-top: 100px;
+  margin-bottom: 100px;
   display: flex;
-  background: #F8F8FF;
+  background: #f8f8ff;
 }
 
-.homepage .active-users-frame .main {
+.homepage .active-users .trand-section {
   width: 100%;
   height: auto;
-  margin-top: 80px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
 }
 
-.homepage .active-users-frame .category-title {
-  width: 214px;
-  height: 31px;
-  font-family: "Dancing Script";
-  font-style: normal;
-  font-weight: 700;
+.homepage .active-users .trand-section .category-title {
+  text-align: center;
+  margin-left: -1100px;
+  font-family: "Roboto Serif";
   font-size: 36px;
-  line-height: 43px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  letter-spacing: 5px;
+  color: #000;
 }
 
-.homepage .cards-frame {
-  width: 100%;
+.homepage .active-users .trand-section .category-small {
+  text-align: start;
+  margin-left: -1060px;
+  margin-top: 20px;
+  margin-bottom: 100px;
+  font-family: "Roboto Serif";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  letter-spacing: 5px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
+
+.homepage .active-users .trand-section .cards-frame {
+  width: 1300px;
   height: auto;
   display: flex;
   flex-direction: row;
@@ -283,30 +636,77 @@
   align-items: center;
 }
 
-.homepage .cards-frame .card {
-  min-width: 305px;
-  height: 302px;
-  margin: 70px 10px 2px 10px;
+.homepage .active-users .trand-section .cards-frame .card {
+  width: 300px;
+  height: 440px;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  border-radius: 0.5rem;
-  background: #FFFFFF;
+  border: solid 2px black;
+  background-color: #F8F8FF;
 }
 
-.homepage .cards-frame .card .image {
-  min-width: 305px;
-  height: 275px;
-  border-radius: 0.5rem;
+.homepage .active-users .trand-section .cards-frame .card .card-img .img {
+  width: 100%;
+  height: 380px;
+  border: solid 1px black;
 }
 
-.homepage .cards-frame .card .card-name {
-  font-size: larger;
-  text-align: center;
+.homepage .active-users .trand-section .cards-frame .card .info-list {
+  width: 100%;
+  height: 35px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
-.homepage .cards-frame .no-data {
+.homepage .active-users .trand-section .cards-frame .card .info-list .info {
+  width: 100%;
+  height: 10px;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.homepage .active-users .trand-section .cards-frame .card .info-list .info .user-name {
+  font-family: "Roboto Serif";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 5px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
+.homepage .active-users .trand-section .cards-frame .card .info-list .info .user-location {
+  font-family: "Roboto Serif";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 200;
+  line-height: normal;
+  letter-spacing: 5px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
+.homepage .active-users .trand-section .cards-frame .card .info-list .info .yes {
+  width: 15px;
+  height: 15px;
+  margin-right: 10px;
+}
+
+.homepage .active-users .trand-section .cards-frame .card .info-list .info .yes .star {
+  width: 15px;
+  height: 15px;
+}
+
+.homepage .active-users .no-data {
   width: 100%;
   height: 300px;
   display: flex;
@@ -321,190 +721,85 @@
   color: #e3c08d;
 }
 
-/** EVENTS **/
+/** Our Store **/
 
-.homepage .events-frame {
+.homepage .our {
   width: 100%;
-  height: 745px;
-  background: #f8f8ff;
-  display: flex;
-}
-
-.homepage .events-frame .category-title {
-  font-family: "Dancing Script";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 43px;
-  padding-top: 20px;
-}
-
-.homepage .events-frame .events-main {
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.homepage .events-frame .events-main .events-text {
-  width: auto;
-  height: 70px;
-  margin-bottom: 40px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.homepage .events-frame .events-main .prev-next-frame {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 250px;
-  margin: 40px 0 40px 0;
-  height: 25px;
-}
-
-.homepage .events-frame .dot-frame-pagination {
-  position: relative;
-  width: auto;
-  display: flex;
-}
-
-.homepage .events-frame .events-main .events-info {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.homepage .events-frame .events-info .events-info-frame {
-  position: relative;
-  width: 500px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.homepage .events-frame .events-img {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  border-radius: 10px;
-  background-size: cover;
-}
-
-.homepage .events-frame .events-desc {
-  position: absolute;
-  margin-bottom: 7px;
-  padding: 10px;
-  display: flex;
-  width: 90%;
   height: auto;
-  bottom: 5px;
-  background: #f8f8ff;
-  box-shadow: 0px 40px 30px rgba(25, 25, 46, 0.04);
-  border-radius: 8px;
-}
-
-.homepage .events-frame .events-desc .events-bott {
-  width: 97%;
-  height: auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.homepage .events-frame .events-desc .events-bott .bott-left {
-  width: 100%;
-  height: 100%;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
-}
-
-.homepage .events-frame .bott-left .event-title-speaker {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-.homepage .events-frame .event-title-speaker .event-organizator {
-  display: flex;
+  justify-content: center;
   align-items: center;
 }
 
-.homepage .events-frame .event-title-speaker .event-organizator img {
-  width: 20px;
-  margin-right: 10px;
-}
-
-.homepage .events-frame .event-organizator .spec-text-author {
-  font-family: "GT Walsheim Pro";
+.homepage .our .name {
+  text-align: start;
+  margin-bottom: 60px;
+  margin-left: -1100px;
+  font-family: "Roboto Serif";
+  font-size: 44px;
   font-style: normal;
-  line-height: 34px;
-  color: #140342;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 5px;
+  color: #000;
 }
 
-.homepage .events-frame .bott-left .text-desc {
-  margin-top: 10px;
-  font-family: "GT Walsheim Pro";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 26px;
-  color: #4f547b;
+.homepage .our .our-store {
+  width: 1500px;
+  height: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(249, 247, 239);
 }
 
-.homepage .events-frame .bott-left .bott-info {
+.homepage .our .our-store .main-text {
+  width: 600px;
+  height: 600px;
+  margin-left: 20px;
   margin-top: 10px;
   display: flex;
-  justify-content: flex-end;
-  flex-direction: row;
-  width: 100%;
-  height: 16px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
 }
 
-.homepage .events-frame .bott-info .bott-info-main {
-  margin-left: 10px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  width: auto;
-  height: 100%;
-  font-family: "GT Walsheim Pro";
+.homepage .our .our-store .main-text .title {
+  text-align: start;
+  margin-left: -200px;
+  font-family: "Roboto Serif";
+  font-size: 44px;
   font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
-  color: #4f547b;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 5px;
+  text-wrap: nowrap;
+  color: #000;
 }
 
-.homepage .events-frame .bott-info .bott-info-main img {
-  margin-right: 10px;
+.homepage .our .our-store .main-text .context {
+  text-align: start;
+  margin-bottom: 60px;
+  font-family: "Roboto Serif";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  /* letter-spacing: 5px; */
+  color: #000;
 }
 
-.homepage .events-frame .swiper-wrapper {
-  display: flex;
-  flex-direction: row;
+.homepage .our .our-store .main-img {
+  width: 800px;
+  height: 600px;
+  margin-right: 20px;
 }
 
-.homepage .events-frame .swiper-pagination-bullet {
-  margin-right: 5px;
-  width: 8px;
-  height: 8px;
-  text-align: center;
-  opacity: 1;
-  background: #f8f8ff;
-  border-radius: 50%;
-}
-
-.homepage .events-frame .swiper-pagination-bullet-active {
-  background: #343434;
-  border-radius: 50%;
+.homepage .our .our-store .main-img .img {
+  width: 800px;
+  height: 700px;
 }

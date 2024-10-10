@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Container, Stack } from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -20,7 +20,7 @@ export default function Footer() {
         <Stack flexDirection={"row"} sx={{ mt: "94px" }}>
           <Stack flexDirection={"column"} style={{ width: "340px" }}>
             <Box>
-              <img width={"100px"} src={"/icons/burak.svg"} />
+              <Typography className={'store'}>Luxury Paradise</Typography>
             </Box>
             <Box className={"foot-desc-txt"}>
               Focusing on the gourmet Turkish breakfast as well as the youth
@@ -37,11 +37,11 @@ export default function Footer() {
           <Stack sx={{ ml: "288px" }} flexDirection={"row"}>
             <Stack>
               <Box>
-                <Box className={"foot-category-title"}>Bo'limlar</Box>
+                <Box className={"foot-category-title"}>Pages</Box>
                 <Box className={"foot-category-link"}>
-                  <Link to="/">Home</Link>
-                  <Link to="/products">Products</Link>
-                  {authMember && <Link to="/orders">Orders</Link>}
+                  <Link to="/watch">Watch</Link>
+                  <Link to="/jewelry">Jewelry</Link>
+                  {authMember && <Link to="/orders">Buy</Link>}
                   <Link to="/help">Help</Link>
                 </Box>
               </Box>
