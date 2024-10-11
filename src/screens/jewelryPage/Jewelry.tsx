@@ -7,7 +7,7 @@ import Pagination from "@mui/material/Pagination";
 import PaginationItem from "@mui/material/PaginationItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import "../../css/watch.css";
+import "../../css/jewelry.css";
 import { setProducts } from "./slice";
 import { createSelector, Dispatch } from "@reduxjs/toolkit";
 import { Product, ProductInquiry } from "../../lib/types/product";
@@ -28,6 +28,7 @@ import BookmarkOutlinedIcon from '@mui/icons-material/BookmarkOutlined';
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import TripOriginOutlinedIcon from '@mui/icons-material/TripOriginOutlined';
 /* Redux Slice and Selector */
 const actionDispatch = (dispatch: Dispatch) => ({
     setProducts: (data: Product[]) => dispatch(setProducts(data)),
@@ -97,8 +98,8 @@ export default function JewelryPage(props: ProductsProps) {
     };
 
     return (
-        <div className={"watches"}>
-            <Container className={'watch-cnt'}>
+        <div className={"jewelry"}>
+            <Container className={'jewelry-cnt'}>
                 <Stack className={'top'}>
                     <Stack className={'top-bar'}>
                         <Box className={'gender-btn'}>
@@ -137,42 +138,44 @@ export default function JewelryPage(props: ProductsProps) {
                             </Menu>
                         </Stack>
                     </Stack>
-                    <Stack className={'filter'}>
-                        <Typography className={'brands-name'}>Brands</Typography>
-                        <Box className={'brand-collection'}>
-                            <Button className={'brand-btn'}>Rolex</Button>
-                            <Button className={'brand-btn'}>Cartier</Button>
-                            <Button className={'brand-btn'}>Casio</Button>
-                            <Button className={'brand-btn'}>Omega</Button>
-                            <Button className={'brand-btn'}>Seiko</Button>
-                            <Button className={'brand-btn'}>Bvlgari</Button>
-                            <Button className={'brand-btn'}>Boss</Button>
-                            <Button className={'brand-btn'}>Versace</Button>
-                            <Button className={'brand-btn'}>Audemar</Button>
-                            <Button className={'brand-btn'}>Chanel</Button>
-                            <Button className={'brand-btn'}>Gucci</Button>
-                            <Button className={'brand-btn'}>Armani</Button>
-                            <Button className={'brand-btn'}>Hamilton</Button>
-                            <Button className={'brand-btn'}>Citizen</Button>
-                            <Button className={'brand-btn'}>Olivia</Button>
-                            <Button className={'brand-btn'}>Timex</Button>
-                            <Button className={'brand-btn'}>Tissot</Button>
-                        </Box>
-                    </Stack>
-                    <Stack className={'category-watch'}>
-                        <Typography className={'category-watch-title'}>Category</Typography>
+                    <Stack className={'category-jewelry'}>
+                        <Stack className={'category-first'}>
+                            <Typography className={'category-jewelry-title'}>Category:</Typography>
+                            <Box className={'material'}>
+                                <Button className={'mtr-btn'}>Gold
+                                    <TripOriginOutlinedIcon className={'gold'} />
+                                </Button>
+                                <Button className={'mtr-btn'}>Silver
+                                    <TripOriginOutlinedIcon className={'silver'} />
+                                </Button>
+                                <Button className={'mtr-btn'}>Titanium
+                                    <TripOriginOutlinedIcon className={'titanium'} />
+                                </Button>
+                                <Button className={'mtr-btn'}>Platinum
+                                    <TripOriginOutlinedIcon className={'platinum'} />
+                                </Button>
+                            </Box>
+                        </Stack>
                         <Box className={'category-box'}>
-                            <Button className={'category-btn'}>Analogue</Button>
-                            <Button className={'category-btn'}>Chronograph</Button>
-                            <Button className={'category-btn'}>Digital</Button>
-                            <Button className={'category-btn'}>Hybrid</Button>
+                            <Button className={'bracelets'}>
+                                Bracelets
+                            </Button>
+                            <Button className={'necklaces'}>
+                                Necklaces
+                            </Button>
+                            <Button className={'rings'}>
+                                Rings
+                            </Button>
+                            <Button className={'earings'}>
+                                Earings
+                            </Button>
                         </Box>
                     </Stack>
                 </Stack>
-                <Stack className={'watch-frame'}>
+                <Stack className={'jewelry-frame'}>
                     <Stack className={'card'}>
                         <Stack className={'card-img'}>
-                            <img src="/img/cartier.png" className={'img'} alt="" />
+                            <img src="/img/rings.webp" className={'img'} alt="" />
                         </Stack>
                         <Box className={'buttons'}>
                             <Box className={'sale-btns'}>
@@ -200,25 +203,25 @@ export default function JewelryPage(props: ProductsProps) {
                         </Box>
                         <Box className={'info-list'}>
                             <Box className={'info'}>
-                                <Typography className={'watch-name'}>Cartier Luxury Watch</Typography>
+                                <Typography className={'jewelry-name'}>Bracelets</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>2.000$</Typography>
+                                <Typography className={'jewelry'}>2.000$</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Automatic</Typography>
+                                <Typography className={'jewelry'}>Gold</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Man</Typography>
+                                <Typography className={'jewelry'}>Woman</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
@@ -227,7 +230,7 @@ export default function JewelryPage(props: ProductsProps) {
                     </Stack>
                     <Stack className={'card'}>
                         <Stack className={'card-img'}>
-                            <img src="/img/cartier.png" className={'img'} alt="" />
+                            <img src="/img/rings.webp" className={'img'} alt="" />
                         </Stack>
                         <Box className={'buttons'}>
                             <Box className={'sale-btns'}>
@@ -255,25 +258,25 @@ export default function JewelryPage(props: ProductsProps) {
                         </Box>
                         <Box className={'info-list'}>
                             <Box className={'info'}>
-                                <Typography className={'watch-name'}>Cartier Luxury Watch</Typography>
+                                <Typography className={'jewelry-name'}>Bracelets</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>2.000$</Typography>
+                                <Typography className={'jewelry'}>2.000$</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Automatic</Typography>
+                                <Typography className={'jewelry'}>Gold</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Man</Typography>
+                                <Typography className={'jewelry'}>Woman</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
@@ -282,7 +285,7 @@ export default function JewelryPage(props: ProductsProps) {
                     </Stack>
                     <Stack className={'card'}>
                         <Stack className={'card-img'}>
-                            <img src="/img/cartier.png" className={'img'} alt="" />
+                            <img src="/img/rings.webp" className={'img'} alt="" />
                         </Stack>
                         <Box className={'buttons'}>
                             <Box className={'sale-btns'}>
@@ -310,25 +313,25 @@ export default function JewelryPage(props: ProductsProps) {
                         </Box>
                         <Box className={'info-list'}>
                             <Box className={'info'}>
-                                <Typography className={'watch-name'}>Cartier Luxury Watch</Typography>
+                                <Typography className={'jewelry-name'}>Bracelets</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>2.000$</Typography>
+                                <Typography className={'jewelry'}>2.000$</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Automatic</Typography>
+                                <Typography className={'jewelry'}>Gold</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Man</Typography>
+                                <Typography className={'jewelry'}>Woman</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
@@ -337,7 +340,7 @@ export default function JewelryPage(props: ProductsProps) {
                     </Stack>
                     <Stack className={'card'}>
                         <Stack className={'card-img'}>
-                            <img src="/img/cartier.png" className={'img'} alt="" />
+                            <img src="/img/rings.webp" className={'img'} alt="" />
                         </Stack>
                         <Box className={'buttons'}>
                             <Box className={'sale-btns'}>
@@ -365,25 +368,25 @@ export default function JewelryPage(props: ProductsProps) {
                         </Box>
                         <Box className={'info-list'}>
                             <Box className={'info'}>
-                                <Typography className={'watch-name'}>Cartier Luxury Watch</Typography>
+                                <Typography className={'jewelry-name'}>Bracelets</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>2.000$</Typography>
+                                <Typography className={'jewelry'}>2.000$</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Automatic</Typography>
+                                <Typography className={'jewelry'}>Gold</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Man</Typography>
+                                <Typography className={'jewelry'}>Woman</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
@@ -392,7 +395,7 @@ export default function JewelryPage(props: ProductsProps) {
                     </Stack>
                     <Stack className={'card'}>
                         <Stack className={'card-img'}>
-                            <img src="/img/cartier.png" className={'img'} alt="" />
+                            <img src="/img/rings.webp" className={'img'} alt="" />
                         </Stack>
                         <Box className={'buttons'}>
                             <Box className={'sale-btns'}>
@@ -420,25 +423,25 @@ export default function JewelryPage(props: ProductsProps) {
                         </Box>
                         <Box className={'info-list'}>
                             <Box className={'info'}>
-                                <Typography className={'watch-name'}>Cartier Luxury Watch</Typography>
+                                <Typography className={'jewelry-name'}>Bracelets</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>2.000$</Typography>
+                                <Typography className={'jewelry'}>2.000$</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Automatic</Typography>
+                                <Typography className={'jewelry'}>Gold</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Man</Typography>
+                                <Typography className={'jewelry'}>Woman</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
@@ -447,7 +450,7 @@ export default function JewelryPage(props: ProductsProps) {
                     </Stack>
                     <Stack className={'card'}>
                         <Stack className={'card-img'}>
-                            <img src="/img/cartier.png" className={'img'} alt="" />
+                            <img src="/img/rings.webp" className={'img'} alt="" />
                         </Stack>
                         <Box className={'buttons'}>
                             <Box className={'sale-btns'}>
@@ -475,25 +478,25 @@ export default function JewelryPage(props: ProductsProps) {
                         </Box>
                         <Box className={'info-list'}>
                             <Box className={'info'}>
-                                <Typography className={'watch-name'}>Cartier Luxury Watch</Typography>
+                                <Typography className={'jewelry-name'}>Bracelets</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>2.000$</Typography>
+                                <Typography className={'jewelry'}>2.000$</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Automatic</Typography>
+                                <Typography className={'jewelry'}>Gold</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Man</Typography>
+                                <Typography className={'jewelry'}>Woman</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
@@ -502,7 +505,7 @@ export default function JewelryPage(props: ProductsProps) {
                     </Stack>
                     <Stack className={'card'}>
                         <Stack className={'card-img'}>
-                            <img src="/img/cartier.png" className={'img'} alt="" />
+                            <img src="/img/rings.webp" className={'img'} alt="" />
                         </Stack>
                         <Box className={'buttons'}>
                             <Box className={'sale-btns'}>
@@ -530,25 +533,25 @@ export default function JewelryPage(props: ProductsProps) {
                         </Box>
                         <Box className={'info-list'}>
                             <Box className={'info'}>
-                                <Typography className={'watch-name'}>Cartier Luxury Watch</Typography>
+                                <Typography className={'jewelry-name'}>Bracelets</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>2.000$</Typography>
+                                <Typography className={'jewelry'}>2.000$</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Automatic</Typography>
+                                <Typography className={'jewelry'}>Gold</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Man</Typography>
+                                <Typography className={'jewelry'}>Woman</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
@@ -557,7 +560,7 @@ export default function JewelryPage(props: ProductsProps) {
                     </Stack>
                     <Stack className={'card'}>
                         <Stack className={'card-img'}>
-                            <img src="/img/cartier.png" className={'img'} alt="" />
+                            <img src="/img/rings.webp" className={'img'} alt="" />
                         </Stack>
                         <Box className={'buttons'}>
                             <Box className={'sale-btns'}>
@@ -585,25 +588,25 @@ export default function JewelryPage(props: ProductsProps) {
                         </Box>
                         <Box className={'info-list'}>
                             <Box className={'info'}>
-                                <Typography className={'watch-name'}>Cartier Luxury Watch</Typography>
+                                <Typography className={'jewelry-name'}>Bracelets</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>2.000$</Typography>
+                                <Typography className={'jewelry'}>2.000$</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Automatic</Typography>
+                                <Typography className={'jewelry'}>Gold</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
                             </Box>
                             <Box className={'info'}>
-                                <Typography className={'watch'}>Man</Typography>
+                                <Typography className={'jewelry'}>Woman</Typography>
                                 <p className={'yes'}>
                                     <CheckIcon className={'star'} />
                                 </p>
@@ -624,7 +627,6 @@ export default function JewelryPage(props: ProductsProps) {
                                         next: ArrowForwardIcon,
                                     }}
                                     {...item}
-                                    color={"secondary"}
                                 />
                             )}
                             onChange={paginationHandler}

@@ -16,7 +16,7 @@ export default function JewelryPageMain(props: ProductsPageProps) {
   console.log("products:", products);
 
   return (
-    <div className={"watch-page"}>
+    <div className={"jewelry-page"}>
       <Switch>
         <Route path={`${products.path}/:productId`}>
           <ChosenProduct onAdd={onAdd} />

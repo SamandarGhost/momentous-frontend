@@ -159,7 +159,6 @@
   background: url("/public/img/analuge.webp");
   background-size: cover;
   background-position: center;
-  background-color: rgb(249, 247, 239);
 }
 
 .homepage .category-watch .category-list .category-main .category-1 .card-view2 {
@@ -168,7 +167,6 @@
   background: url("/public/img/hybridWatch.webp");
   background-size: cover;
   background-position: center;
-  background-color: rgb(249, 247, 239);
 }
 
 .homepage .category-watch .category-list .category-main .category-1 .card-view3 {
@@ -177,7 +175,6 @@
   background: url("/public/img/casioPng.png");
   background-size: cover;
   background-position: center;
-  background-color: rgb(249, 247, 239);
 }
 
 .homepage .category-watch .category-list .category-main .category-1 .card-view4 {
@@ -186,7 +183,6 @@
   background: url("/public/img/automaticWatch.webp");
   background-size: cover;
   background-position: center;
-  background-color: rgb(249, 247, 239);
 }
 
 .homepage .category-watch .category-list .category-main .category-1 .text-category {
@@ -195,7 +191,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgb(249, 247, 239);
 }
 
 .homepage .category-watch .category-list .category-main .category-1 .card-text .watch {

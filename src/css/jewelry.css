@@ -1,4 +1,4 @@
-.watch-page {
+.jewelry-page {
   position: relative;
   width: 100%;
   height: auto;
@@ -6,12 +6,12 @@
 }
 
 /* Watch-page */
-.watch-page .watches {
+.jewelry-page .jewelry {
   width: 100%;
   height: auto;
 }
 
-.watch-page .watches .watch-cnt {
+.jewelry-page .jewelry .jewelry-cnt {
   width: 100%;
   height: auto;
   display: flex;
@@ -20,16 +20,17 @@
   align-items: center;
 }
 
-.watch-page .watches .watch-cnt .top {
+.jewelry-page .jewelry .jewelry-cnt .top {
   width: 100%;
   height: auto;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.watch-page .watches .watch-cnt .top .top-bar {
+.jewelry-page .jewelry .jewelry-cnt .top .top-bar {
   width: 100%;
   height: auto;
   margin-top: 50px;
@@ -39,7 +40,7 @@
   align-items: center;
 }
 
-.watch-page .watches .watch-cnt .top .top-bar .gender-btn {
+.jewelry-page .jewelry .jewelry-cnt .top .top-bar .gender-btn {
   width: 200px;
   height: 40px;
   display: flex;
@@ -48,7 +49,7 @@
   align-items: center;
 }
 
-.watch-page .watches .watch-cnt .top .top-bar .gender-btn .male-btn {
+.jewelry-page .jewelry .jewelry-cnt .top .top-bar .gender-btn .male-btn {
   width: 70px;
   height: 30px;
   font-family: "Roboto Serif";
@@ -61,7 +62,7 @@
   color: #000;
 }
 
-.watch-page .watches .watch-cnt .top .top-bar .gender-btn .female-btn {
+.jewelry-page .jewelry .jewelry-cnt .top .top-bar .gender-btn .female-btn {
   width: 120px;
   height: 30px;
   font-family: "Roboto Serif";
@@ -74,15 +75,15 @@
   color: #000;
 }
 
-.watch-page .watches .watch-cnt .top .top-bar .gender-btn .male-btn:hover {
+.jewelry-page .jewelry .jewelry-cnt .top .top-bar .gender-btn .male-btn:hover {
   background: #fff;
 }
 
-.watch-page .watches .watch-cnt .top .top-bar .gender-btn .female-btn:hover {
+.jewelry-page .jewelry .jewelry-cnt .top .top-bar .gender-btn .female-btn:hover {
   background: #fff;
 }
 
-.watch-page .watches .watch-cnt .top .top-bar .search {
+.jewelry-page .jewelry .jewelry-cnt .top .top-bar .search {
   width: 500px;
   height: 30px;
   display: flex;
@@ -93,7 +94,7 @@
   border-radius: 0.5rem;
 }
 
-.watch-page .watches .watch-cnt .top .top-bar .search .search-input {
+.jewelry-page .jewelry .jewelry-cnt .top .top-bar .search .search-input {
   width: 500px;
   height: 30px;
   border: solid 1px black;
@@ -108,7 +109,7 @@
   color: #000;
 }
 
-.watch-page .watches .watch-cnt .top .top-bar .search .search-btn {
+.jewelry-page .jewelry .jewelry-cnt .top .top-bar .search .search-btn {
   width: 130px;
   height: 30px;
   font-family: "Roboto Serif";
@@ -121,7 +122,7 @@
   color: #000;
 }
 
-.watch-page .watches .watch-cnt .top .top-bar .sorting {
+.jewelry-page .jewelry .jewelry-cnt .top .top-bar .sorting {
   width: 100px;
   height: 40px;
   display: flex;
@@ -130,7 +131,7 @@
   align-items: center;
 }
 
-.watch-page .watches .watch-cnt .top .top-bar .sorting .sort-name {
+.jewelry-page .jewelry .jewelry-cnt .top .top-bar .sorting .sort-name {
   width: 80px;
   height: 30px;
   font-family: "Roboto Serif";
@@ -143,7 +144,7 @@
   color: #000;
 }
 
-.watch-page .watches .watch-cnt .top .top-bar .sorting .menu-btn .dawn-line {
+.jewelry-page .jewelry .jewelry-cnt .top .top-bar .sorting .menu-btn .dawn-line {
   width: 20px;
   height: 30px;
   font-family: "Roboto Serif";
@@ -156,111 +157,167 @@
   color: #000;
 }
 
-.watch-page .watches .watch-cnt .top .filter {
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry {
   width: 100%;
   height: auto;
   margin-top: 50px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.watch-page .watches .watch-cnt .top .filter .brands-name {
-  width: 20px;
-  height: 30px;
-  font-family: "Roboto Serif";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: lighter;
-  line-height: normal;
-  letter-spacing: 2px;
-  text-wrap: nowrap;
-  color: #000;
-}
-
-.watch-page .watches .watch-cnt .top .filter .brand-collection {
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-first {
   width: 100%;
   height: auto;
-  margin-top: 10px;
-  margin-left: -8px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 }
 
-.watch-page .watches .watch-cnt .top .filter .brand-collection .brand-btn {
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-first .material {
+  width: 700px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-first .material .mtr-btn {
   width: auto;
-  height: 30px;
+  height: auto;
   font-family: "Roboto Serif";
-  font-size: 12px;
+  font-size: 18px;
   font-style: normal;
   font-weight: lighter;
   line-height: normal;
-  letter-spacing: 2px;
+  letter-spacing: 5px;
   text-wrap: nowrap;
   color: #000;
 }
 
-.watch-page .watches .watch-cnt .top .filter .brand-collection .brand-btn:hover {
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-first .material .mtr-btn:hover {
   background: #fff;
 }
 
-.watch-page .watches .watch-cnt .top .category-watch {
-  width: 100%;
-  height: auto;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-first .material .mtr-btn .gold {
+  color: rgb(220, 188, 7);
 }
 
-.watch-page .watches .watch-cnt .top .category-watch .category-watch-title {
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-first .material .mtr-btn .silver {
+  color: silver;
+}
+
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-first .material .mtr-btn .titanium {
+  color: rgb(127, 124, 126);
+}
+
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-first .material .mtr-btn .platinum {
+  color: rgb(221, 164, 93);
+}
+
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-first .category-jewelry-title {
   width: 20px;
   height: 30px;
+  margin-bottom: 30px;
   font-family: "Roboto Serif";
-  font-size: 24px;
+  font-size: 36px;
   font-style: normal;
   font-weight: lighter;
   line-height: normal;
-  letter-spacing: 2px;
+  letter-spacing: 5px;
   text-wrap: nowrap;
   color: #000;
 }
 
-.watch-page .watches .watch-cnt .top .category-watch .category-box {
-  width: auto;
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-box {
+  width: 100%;
   height: auto;
-  margin-top: 10px;
-  margin-left: -8px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 }
 
-.watch-page .watches .watch-cnt .top .category-watch .category-box .category-btn {
-  width: auto;
-  height: 30px;
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-box .bracelets {
+  width: 300px;
+  height: 350px;
+  align-items: self-end;
   font-family: "Roboto Serif";
-  font-size: 12px;
+  font-size: 20px;
   font-style: normal;
   font-weight: lighter;
   line-height: normal;
   letter-spacing: 2px;
   text-wrap: nowrap;
   color: #000;
+  background: url("/public/img/bracelets.webp");
+  background-size: cover;
+  background-position: center;
 }
 
-.watch-page .watches .watch-cnt .top .category-watch .category-box .category-btn:hover {
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-box .necklaces {
+  width: 300px;
+  height: 350px;
+  align-items: self-end;
+  font-family: "Roboto Serif";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: lighter;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-wrap: nowrap;
+  color: #000;
+  background: url("/public/img/neckleces.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-box .rings {
+  width: 300px;
+  height: 350px;
+  align-items: self-end;
+  font-family: "Roboto Serif";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: lighter;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-wrap: nowrap;
+  color: #000;
+  background: url("/public/img/rings.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-box .earings {
+  width: 300px;
+  height: 350px;
+  align-items: self-end;
+  font-family: "Roboto Serif";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: lighter;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-wrap: nowrap;
+  color: #000;
+  background: url("/public/img/earings.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.jewelry-page .jewelry .jewelry-cnt .top .category-jewelry .category-box .category-btn:hover {
   background: #fff;
 }
 
 /* Watch Card */
 
-.watch-page .watches .watch-cnt .watch-frame {
+.jewelry-page .jewelry .jewelry-cnt .jewelry-frame {
   width: 100%;
   height: auto;
   margin-top: 50px;
@@ -272,38 +329,39 @@
   flex-flow: row wrap;
 }
 
-.watch-page .watches .watch-cnt .card {
+.jewelry-page .jewelry .jewelry-cnt .card {
   width: 300px;
   height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  border: solid 1px black;
   cursor: pointer;
+  border: solid 1px rgb(188, 188, 5);
 }
 
-.watch-page .watches .watch-cnt .card .card-img {
+.jewelry-page .jewelry .jewelry-cnt .card .card-img {
   width: 100%;
   height: auto;
 }
 
-.watch-page .watches .watch-cnt .card .card-img .img {
+.jewelry-page .jewelry .jewelry-cnt .card .card-img .img {
   width: 100%;
   height: 370px;
 }
 
-.watch-page .watches .watch-cnt .card .buttons {
+.jewelry-page .jewelry .jewelry-cnt .card .buttons {
   width: 100%;
   height: auto;
+  margin-top: -40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
 }
 
-.watch-page .watches .watch-cnt .card .buttons .sale-btns {
+.jewelry-page .jewelry .jewelry-cnt .card .buttons .sale-btns {
   width: 100%;
   height: 30px;
   margin-bottom: 5px;
@@ -313,7 +371,7 @@
   align-items: center;
 }
 
-.watch-page .watches .watch-cnt .card .buttons .sale-btns .buy {
+.jewelry-page .jewelry .jewelry-cnt .card .buttons .sale-btns .buy {
   width: auto;
   height: 30px;
   margin-left: 5px;
@@ -329,12 +387,12 @@
   border-radius: 1rem;
 }
 
-.watch-page .watches .watch-cnt .card .buttons .sale-btns .buy .icons {
+.jewelry-page .jewelry .jewelry-cnt .card .buttons .sale-btns .buy .icons {
   width: 18px;
   height: 18px;
 }
 
-.watch-page .watches .watch-cnt .card .buttons .sale-btns .add-to {
+.jewelry-page .jewelry .jewelry-cnt .card .buttons .sale-btns .add-to {
   width: auto;
   height: 30px;
   margin-right: 5px;
@@ -350,21 +408,22 @@
   border-radius: 1rem;
 }
 
-.watch-page .watches .watch-cnt .card .buttons .sale-btns .add-to .icons {
+.jewelry-page .jewelry .jewelry-cnt .card .buttons .sale-btns .add-to .icons {
   width: 18px;
   height: 18px;
 }
 
-.watch-page .watches .watch-cnt .card .buttons .view-btns {
+.jewelry-page .jewelry .jewelry-cnt .card .buttons .view-btns {
   width: 100%;
   height: 30px;
+  margin-top: 10px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
 
-.watch-page .watches .watch-cnt .card .buttons .view-btns .views {
+.jewelry-page .jewelry .jewelry-cnt .card .buttons .view-btns .views {
   width: 60px;
   height: 30px;
   margin-right: 10px;
@@ -382,20 +441,20 @@
   color: #000;
 }
 
-.watch-page .watches .watch-cnt .card .buttons .view-btns .views .like {
+.jewelry-page .jewelry .jewelry-cnt .card .buttons .view-btns .views .like {
   cursor: pointer;
   color: red;
 
 }
 
-.watch-page .watches .watch-cnt .card .buttons .view-btns .book-mark {
+.jewelry-page .jewelry .jewelry-cnt .card .buttons .view-btns .book-mark {
   width: 40px;
   height: 24px;
   margin-right: 3px;
   margin-left: 100px;
 }
 
-.watch-page .watches .watch-cnt .info-list {
+.jewelry-page .jewelry .jewelry-cnt .info-list {
   width: 100%;
   height: auto;
   margin-right: 5px;
@@ -406,7 +465,7 @@
   align-items: flex-start;
 }
 
-.watch-page .watches .watch-cnt .info-list .info {
+.jewelry-page .jewelry .jewelry-cnt .info-list .info {
   width: 100%;
   height: 20px;
   display: flex;
@@ -415,7 +474,7 @@
   align-items: center;
 }
 
-.watch-page .watches .watch-cnt .info-list .info .watch-name {
+.jewelry-page .jewelry .jewelry-cnt .info-list .info .jewelry-name {
   width: 100%;
   height: 10px;
   margin-left: 12px;
@@ -429,7 +488,7 @@
   color: #000;
 }
 
-.watch-page .watches .watch-cnt .info-list .info .watch {
+.jewelry-page .jewelry .jewelry-cnt .info-list .info .jewelry {
   width: 100%;
   height: 8px;
   margin-left: 12px;
@@ -443,7 +502,7 @@
   color: #000;
 }
 
-.watch-page .watches .watch-cnt .info-list .info .yes .star {
+.jewelry-page .jewelry .jewelry-cnt .info-list .info .yes .star {
   width: 100%;
   height: 15px;
   margin-right: 35px;
@@ -459,7 +518,7 @@
 
 
 /* Pagination */
-.watch-page .watches .pagination-section {
+.jewelry-page .jewelry .pagination-section {
   width: 100%;
   display: flex;
   justify-content: center;
