@@ -9,21 +9,21 @@ interface ProductsPageProps {
   onAdd: (item: CartItem) => void;
 }
 
-export default function ProductsPage(props: ProductsPageProps ) {
-    const { onAdd } = props;
-    const products = useRouteMatch();
+export default function ProductsPage(props: ProductsPageProps) {
+  const { onAdd } = props;
+  const products = useRouteMatch();
 
-    console.log("products:", products);
+  console.log("products:", products);
 
-    return (
-    <div className={"products-page"}>
+  return (
+    <div className={"watch-page"}>
       <Switch>
         <Route path={`${products.path}/:productId`}>
-            <ChosenProduct onAdd={onAdd} />
+          <ChosenProduct onAdd={onAdd} />
         </Route>
         <Route path={`${products.path}`}>
-            <Products onAdd={onAdd} />
+          <Products onAdd={onAdd} />
         </Route>
       </Switch>
     </div>);
-  }
+}

@@ -1,7 +1,7 @@
 export const faq = [
 	{
 		question: 'How to make order?',
-		answer: 'You should choose products and make an order via basket!',
+		answer: 'You should choose jewelry or watch and make an order via bag!',
 	},
 	{
 		question: 'How long does delivery takes?',
@@ -17,7 +17,7 @@ export const faq = [
 	},
 	{
 		question: 'How can I cancel order?',
-		answer: 'You can cancel your order any time easily, just go to your orders page!',
+		answer: 'You can cancel your order any time easily, just go to your buy page!',
 	},
 	{
 		question: 'Who developed this platform?',
