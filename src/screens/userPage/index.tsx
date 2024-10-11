@@ -1,4 +1,4 @@
-import { Box, Container, Stack } from "@mui/material";
+import { Box, Container, Stack, Typography } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import TelegramIcon from "@mui/icons-material/Telegram";
@@ -9,54 +9,48 @@ import { useGlobals } from "../../app/hooks/useGlobals";
 import "../../css/userPage.css";
 import { MemberType } from "../../lib/enums/member.enum";
 import { serverApi } from "../../lib/config";
+import Divider from "../../app/components/divider";
 
 export default function UserPage() {
-  const history = useHistory();
-  const {authMember} = useGlobals();
+  const { authMember } = useGlobals();
 
-  if(!authMember) history.push("/");
   return (
     <div className={"user-page"}>
-      <Container>
-        <Stack className={"my-page-frame"}>
-          <Stack className={"my-page-left"}>
-            <Box display={"flex"} flexDirection={"column"}>
-              <Box className={"menu-name"}>Modify Member Details</Box>
-              <Box className={"menu-content"}>
-                <Settings />
+      <Container className={"container"}>
+        <Typography className={'title'}>My Page:</Typography>
+        <Stack className={"my-frame"}>
+          <Stack className={"my-right"}>
+            <Stack className={'right'}>
+              <Box className={'user-img'}>
+                <img src="/icons/default-user.svg" className={'img'} alt="" />
+                <Box className={'media'}>
+                  <FacebookIcon className={'media-icn'} />
+                  <InstagramIcon className={'media-icn'} />
+                  <TelegramIcon className={'media-icn'} />
+                  <YouTubeIcon className={'media-icn'} />
+                </Box>
               </Box>
-            </Box>
+              <Divider height="2" width="300" bg="black" />
+              <Box className={'info'}>
+                <Typography className={'name'}>Samandar</Typography>
+                <Divider height="1" width="300" bg="black" />
+                <Typography className={'two'}>Phone: 010 4867 5455</Typography>
+                <Divider height="1" width="300" bg="black" />
+                <Typography className={'two'}>Location: South Korea</Typography>
+                <Divider height="1" width="300" bg="black" />
+                <Typography className={'two'}>Email: hurayrah@gmail.com</Typography>
+                <Divider height="1" width="300" bg="black" />
+                <Box className={'desc'}>
+                  <Typography className={'descr'}>Description:</Typography>
+                  <Divider height="1" width="300" bg="black" />
+                  <Typography className={'context'}>Web Developer. Student of Unversity</Typography>
+                </Box>
+              </Box>
+            </Stack>
           </Stack>
-
-          <Stack className={"my-page-right"}>
-            <Box className={"order-info-box"}>
-              <Box
-                display={"flex"}
-                flexDirection={"column"}
-                alignItems={"center"}
-              >
-                <div className={"order-user-img"}>
-                  <img
-                     src={ authMember?.memberImage ? `${serverApi}/${authMember.memberImage}` : "/icons/default-user.svg"}
-                    className={"order-user-avatar"}
-                  />
-                  <div className={"order-user-icon-box"}>
-                    <img src={authMember?.memberType === MemberType.RESTAURANT 
-                        ? "/icons/restaurant.svg" 
-                        : "/icons/user-badge.svg"} />
-                  </div>
-                </div>
-                <span className={"order-user-name"}>{authMember?.memberNick}</span>
-                <span className={"order-user-prof"}>{authMember?.memberType}</span>
-                <span className={"order-user-prof"}>{authMember?.memberAdress ? authMember?.memberAdress : "no address"}</span>
-              </Box>
-              <Box className={"user-media-box"}>
-                <FacebookIcon />
-                <InstagramIcon />
-                <TelegramIcon />
-                <YouTubeIcon />
-              </Box>
-              <p className={"user-desc"}>{authMember?.memberDesc ? authMember.memberDesc : "no description"}</p>
+          <Stack className={"my-left"}>
+            <Box className={"menu-content"}>
+              <Settings />
             </Box>
           </Stack>
         </Stack>
