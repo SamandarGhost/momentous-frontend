@@ -2,6 +2,11 @@ import React from "react";
 import { Box, Container, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import TelegramIcon from '@mui/icons-material/Telegram';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import XIcon from '@mui/icons-material/X';
 
 const Footers = styled.div`
   width: 100%;
@@ -16,64 +21,39 @@ export default function Footer() {
 
   return (
     <Footers>
-      <Container>
-        <Stack flexDirection={"row"} sx={{ mt: "94px" }}>
-          <Stack flexDirection={"column"} style={{ width: "340px" }}>
-            <Box>
-              <Typography className={'store'}>Luxury Paradise</Typography>
-            </Box>
-            <Box className={"foot-desc-txt"}>
-              Focusing on the gourmet Turkish breakfast as well as the youth
-              society, CZN Burak Gurme aims to bring Turkish cuisine back. CZN
-              Burak Gurme creates an illusion with its cuisine.
-            </Box>
-            <Box className="sns-context">
-              <img src={"/icons/facebook.svg"} />
-              <img src={"/icons/twitter.svg"} />
-              <img src={"/icons/instagram.svg"} />
-              <img src={"/icons/youtube.svg"} />
+      <Container className={'footer-page'}>
+        <Stack className={'main-footer'}>
+          <Stack className={'main-footer-context'}>
+            <Typography className={'main-footer-name'}>Luxury Paradise</Typography>
+            <Typography className={'main-footer-desc'}>
+              In your luxurious villa, you find yourself enveloped in comfort,
+              surrounded by plush bedding and exquisite textiles.
+              Outside your window, a breathtaking view unfolds—coconut palms sway gently,
+              vibrant flowers bloom in brilliant colors, and birds dance through the clear sky.
+            </Typography>
+            <Box className={'main-footer-media'}>
+              <TelegramIcon className={'footer-icons'} />
+              <InstagramIcon className={'footer-icons'} />
+              <YouTubeIcon className={'footer-icons'} />
+              <FacebookIcon className={'footer-icons'} />
+              <XIcon className={'footer-icons'} />
             </Box>
           </Stack>
-          <Stack sx={{ ml: "288px" }} flexDirection={"row"}>
-            <Stack>
-              <Box>
-                <Box className={"foot-category-title"}>Pages</Box>
-                <Box className={"foot-category-link"}>
-                  <Link to="/watch">Watch</Link>
-                  <Link to="/jewelry">Jewelry</Link>
-                  {authMember && <Link to="/orders">Buy</Link>}
-                  <Link to="/help">Help</Link>
-                </Box>
-              </Box>
-            </Stack>
-            <Stack sx={{ ml: "100px" }}>
-              <Box>
-                <Box className={"foot-category-title"}>Find us</Box>
-                <Box
-                  flexDirection={"column"}
-                  sx={{ mt: "20px" }}
-                  className={"foot-category-link"}
-                  justifyContent={"space-between"}
-                >
-                  <Box flexDirection={"row"} className={"find-us"}>
-                    <span>L.</span>
-                    <div>Downtown, Dubai</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>P.</span>
-                    <div>+971 4 554 7777</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>E.</span>
-                    <div>devexuz@gmail.com</div>
-                  </Box>
-                  <Box className={"find-us"}>
-                    <span>H.</span>
-                    <div>Visit 24 hours</div>
-                  </Box>
-                </Box>
-              </Box>
-            </Stack>
+          <Stack className={'main-footer-pages'}>
+            <Typography className={'pages-footer'}>Pages</Typography>
+            <Link className={'footer-page'} to={"/"}>Store</Link>
+            <Link className={'footer-page'} to={"/watch/all"}>Watch</Link>
+            <Link className={'footer-page'} to={"/jewelry/all"}>Jewelry</Link>
+            <Link className={'footer-page'} to={"/orders"}>Buy</Link>
+            <Link className={'footer-page'} to={"/help"}>Help</Link>
+          </Stack>
+          <Stack className={'footer-us'}>
+            <Typography className={'find-use'}>Found Us</Typography>
+            <Typography className={'find-loc'}>South Korea</Typography>
+            <Typography className={'find-loc'}>WWW.LuxuryParadise.com</Typography>
+            <Typography className={'find-loc'}>010-4867-5455</Typography>
+            <Typography className={'find-loc'}>Luxury Paradise Store</Typography>
+            <Typography className={'find-loc'}>luxury@gmail.com</Typography>
           </Stack>
         </Stack>
         <Stack
@@ -81,7 +61,7 @@ export default function Footer() {
           sx={{ mt: "80px" }}
         ></Stack>
         <Stack className={"copyright-txt"}>
-          © Copyright Devex Global, All rights reserved.
+          © Coder Rakhmatillaev Samandar Global, All rights reserved.
         </Stack>
       </Container>
     </Footers>

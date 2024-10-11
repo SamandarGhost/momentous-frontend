@@ -726,7 +726,6 @@
 .homepage .our {
   width: 100%;
   height: auto;
-  margin-bottom: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -789,7 +788,6 @@
   font-style: normal;
   font-weight: 100;
   line-height: normal;
-  /* letter-spacing: 5px; */
   color: #000;
 }
 
