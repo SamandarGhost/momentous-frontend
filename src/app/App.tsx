@@ -21,6 +21,7 @@ import MemberService from './services/MemeberService';
 import { useGlobals } from './hooks/useGlobals';
 import WatchPageMain from '../screens/watchPage';
 import JewelryPageMain from '../screens/jewelryPage';
+import FavoritePage from '../screens/favoritePage';
 function App() {
   const location = useLocation();
   const { setAuthMember } = useGlobals();
@@ -93,6 +94,9 @@ function App() {
         </Route>
         <Route path="/user">
           <UserPage />
+        </Route>
+        <Route path="/favorite">
+          <FavoritePage />
         </Route>
         <Route path="/help">
           <HelpPage />
