@@ -96,6 +96,8 @@
 .watch-page .watches .watch-cnt .top .top-bar .search .search-input {
   width: 500px;
   height: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
   border: solid 1px black;
   border-radius: 0.5rem;
   font-family: "Roboto Serif";

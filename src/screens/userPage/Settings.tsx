@@ -10,7 +10,7 @@ import { Messages, serverApi } from "../../lib/config";
 import MemberService from "../../app/services/MemeberService";
 
 export function Settings() {
-  const {authMember, setAuthMember} = useGlobals();
+  const { authMember, setAuthMember } = useGlobals();
   const [memberImage, setMemberImage] = useState<string>(
     authMember?.memberImage ? `${serverApi}/${authMember.memberImage}` : "/icons/default-user.svg"
   );
@@ -28,28 +28,28 @@ export function Settings() {
   /*Handlers*/
   const memberNickHandler = (e: T) => {
     memberUpdateInput.memberNick = e.target.value;
-    setMemberUpdateInput({...memberUpdateInput});
+    setMemberUpdateInput({ ...memberUpdateInput });
   };
-  
+
   const memberPhoneHandler = (e: T) => {
     memberUpdateInput.memberPhone = e.target.value;
-    setMemberUpdateInput({...memberUpdateInput});
+    setMemberUpdateInput({ ...memberUpdateInput });
   };
 
   const memberAddressHandler = (e: T) => {
     memberUpdateInput.memberAdress = e.target.value;
-    setMemberUpdateInput({...memberUpdateInput});
+    setMemberUpdateInput({ ...memberUpdateInput });
   };
 
   const memberDescriptionHandler = (e: T) => {
     memberUpdateInput.memberDesc = e.target.value;
-    setMemberUpdateInput({...memberUpdateInput});
+    setMemberUpdateInput({ ...memberUpdateInput });
   };
 
   const handleSubmitButton = async () => {
     try {
-      if(!authMember) throw new Error(Messages.error2);
-      if(
+      if (!authMember) throw new Error(Messages.error2);
+      if (
         memberUpdateInput.memberNick === "" ||
         memberUpdateInput.memberPhone === "" ||
         memberUpdateInput.memberAdress === "" ||
@@ -64,7 +64,7 @@ export function Settings() {
 
       sweetTopSmallSuccessAlert("Modified sucessfully!", 700);
 
-      } catch (err) {
+    } catch (err) {
       console.log(err);
       sweetErrorHandling(err).then();
     }
@@ -76,15 +76,15 @@ export function Settings() {
     const fileType = file.type,
       validateImageTypes = ["image/jpg", "image/jpeg", "image/png"];
 
-      if(!validateImageTypes.includes(fileType)) {
-        sweetErrorHandling(Messages.error5).then();
-      } else {
-        if(file) {
-          memberUpdateInput.memberImage = file;
-          setMemberUpdateInput({...memberUpdateInput});
-          setMemberImage(URL.createObjectURL(file));
-        }
+    if (!validateImageTypes.includes(fileType)) {
+      sweetErrorHandling(Messages.error5).then();
+    } else {
+      if (file) {
+        memberUpdateInput.memberImage = file;
+        setMemberUpdateInput({ ...memberUpdateInput });
+        setMemberImage(URL.createObjectURL(file));
       }
+    }
   };
 
 
@@ -153,7 +153,7 @@ export function Settings() {
         </div>
       </Box>
       <Box className={"save-box"}>
-        <Button  variant={"contained"} onClick={handleSubmitButton}>Save</Button>
+        <Button className={'btn'} onClick={handleSubmitButton}>Save</Button>
       </Box>
     </Box>
   );
