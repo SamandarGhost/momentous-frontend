@@ -136,14 +136,15 @@
 }
 
 .home-navbar .navbar-container .top-bar .right-bar .signup-login .signup-link {
-    font-size: 18px;
+    font-size: 16px;
+    margin-right: 5px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     color: white;
 }
 
 .home-navbar .navbar-container .top-bar .right-bar .signup-login .login-link {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     color: white;
@@ -278,14 +279,15 @@
 }
 
 .other-navbar .other-container .top-bar .right .signup-login .signup-link {
-    font-size: 18px;
+    font-size: 16px;
+    margin-right: 5px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     color: white;
 }
 
 .other-navbar .other-container .top-bar .right .signup-login .login-link {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     color: white;

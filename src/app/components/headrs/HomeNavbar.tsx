@@ -89,13 +89,17 @@ export default function HomeNavbar(props: HomeNavbarProps) {
 
                         {!authMember ? (
                             <Box className={'signup-login'}>
-                                <NavLink to={'/signup'} className={'signup-link'}>
+                                <Button className={'signup-link'}
+                                    onClick={() => setSignupOpen(true)}
+                                >
                                     SignUp
-                                </NavLink>
+                                </Button>
                                 <Divider height="20" width="2" bg="#E3C08D" />
-                                <NavLink to={'/login'} className={'login-link'}>
+                                <Button className={'login-link'}
+                                    onClick={() => setLoginOpen(true)}
+                                >
                                     Login
-                                </NavLink>
+                                </Button>
                             </Box>
                         ) : (
                             <><Box className={'my'}>
