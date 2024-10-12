@@ -48,6 +48,19 @@
     margin-left: 100px;
 }
 
+.fav-page .cnt .fav-main .like {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fav-page .cnt .fav-main .like .pagination-section {
+    margin-top: 30px;
+}
+
 .fav-page .cnt .fav-main .like-cnt {
     width: 1300px;
     height: auto;
@@ -71,7 +84,7 @@
 
 .fav-page .cnt .fav-main .like-cnt .like-crd .img-crd {
     width: 380px;
-    height: auto;
+    height: 450px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -129,10 +142,22 @@
     color: #000;
 }
 
+.fav-page .cnt .fav-main .like-cnt .like-crd .info-box .view-btns .main .views .like {
+    width: 30px;
+    height: 24px;
+    color: red;
+}
+
+.fav-page .cnt .fav-main .like-cnt .like-crd .info-box .view-btns .main .views .vew {
+    width: 30px;
+    height: 24px;
+    color: rgb(162, 162, 162);
+}
+
 .fav-page .cnt .fav-main .like-cnt .like-crd .info-box .view-btns .book-mark {
     width: 30px;
     height: 30px;
-    margin-right: 20px;
+    margin-right: 150px;
 }
 
 .fav-page .cnt .fav-main .like-cnt .like-crd .info-box .info {

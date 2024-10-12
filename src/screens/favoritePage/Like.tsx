@@ -1,8 +1,13 @@
-import { Box, Button, Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Pagination, Stack, Typography } from "@mui/material";
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 import BookmarkBorderOutlinedIcon from '@mui/icons-material/BookmarkBorderOutlined';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
+import PaginationItem from "@mui/material/PaginationItem";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import { ChangeEvent, useState } from "react";
+
 
 export default function Like() {
     return (<div className={'like'}>
@@ -15,8 +20,8 @@ export default function Like() {
                     <Box className={'view-btns'}>
                         <Box className={'main'}>
                             <Typography className={"views"}>20
-                                <VisibilityIcon
-                                    sx={{ fontSize: 22, marginLeft: "5px" }}
+                                <VisibilityIcon className={'vew'}
+                                    sx={{ fontSize: 22, marginLeft: "5px", }}
                                 />
                             </Typography>
                             <Typography className={"views"}>20
@@ -164,6 +169,21 @@ export default function Like() {
                 </Box>
             </Stack>
         </Container>
+        <Stack flexDirection={"column"} alignItems={"center"}>
+            <Stack className={"pagination-section"}>
+                <Pagination
+                    renderItem={(item) => (
+                        <PaginationItem
+                            components={{
+                                previous: ArrowBackIcon,
+                                next: ArrowForwardIcon,
+                            }}
+                            {...item}
+                        />
+                    )}
+                />
+            </Stack>
+        </Stack>
     </div>
     )
 }
