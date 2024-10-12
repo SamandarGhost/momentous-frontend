@@ -36,29 +36,36 @@ export default function OtherNavbar(props: OtherNavbarProps) {
                             Luxury
                         </Box>
                         <Box className={'store'}>
-                            <NavLink to={'/'} className={'store'}>
+                            <NavLink to={'/'} className={'txt'}>
                                 Store
                             </NavLink>
                         </Box>
                         <Box className={'watch'}>
-                            <NavLink to={'/watch/all'} className={'watch'}>
+                            <NavLink to={'/watch/all'} className={'txt'}>
                                 Watch
                             </NavLink>
                         </Box>
                         <Box className={'jewelry'}>
-                            <NavLink to={'/jewelry/all'} className={'jewelry'}>
+                            <NavLink to={'/jewelry/all'} className={'txt'}>
                                 Jewelry
                             </NavLink>
                         </Box>
                         {authMember ? (
+                            <Box className={'jewelry'}>
+                                <NavLink to={'/user'} className={'txt'}>
+                                    MyPage
+                                </NavLink>
+                            </Box>
+                        ) : null}
+                        {authMember ? (
                             <Box className={'buy'}>
-                                <NavLink to={'/my-orders'} className={'buy'}>
+                                <NavLink to={'/my-orders'} className={'txt'}>
                                     Buy
                                 </NavLink>
                             </Box>
                         ) : null}
                         <Box className={'help'}>
-                            <NavLink to={'/help'} className={'help'}>
+                            <NavLink to={'/help'} className={'txt'}>
                                 Help
                             </NavLink>
                         </Box>
@@ -66,10 +73,9 @@ export default function OtherNavbar(props: OtherNavbarProps) {
                     <Stack className={'right'}>
                         {authMember ? (
                             <><Box className={'like-save'}>
-                                <NavLink to={'/like'} className={'like-link'}>
+                                <NavLink to={'/favorite'} className={'like-link'}>
                                     <FavoriteBorderSharpIcon />
-                                </NavLink>
-                                <NavLink to={'/save'} className={'save-link'}>
+                                    <Divider height="20" width="1" bg="#E3C08D" />
                                     <BookmarkSharpIcon />
                                 </NavLink>
                             </Box>

@@ -8,6 +8,10 @@
     background-position: top;
 }
 
+.home-navbar .navbar-container {
+    margin-top: 20px;
+}
+
 .home-navbar .navbar-container .name-left {
     position: absolute;
     width: 350px;
@@ -41,7 +45,8 @@
 }
 
 .home-navbar .navbar-container .top-bar .left-bar {
-    width: 700px;
+    width: 900px;
+    margin-top: 5px;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -56,35 +61,7 @@
     color: white;
 }
 
-.home-navbar .navbar-container .top-bar .left-bar .store {
-    font-size: 18px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-}
-
-.home-navbar .navbar-container .top-bar .left-bar .watch {
-    font-size: 18px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-}
-
-.home-navbar .navbar-container .top-bar .left-bar .jewelry {
-    font-size: 18px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-}
-
-.home-navbar .navbar-container .top-bar .left-bar .help {
-    font-size: 18px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-}
-
-.home-navbar .navbar-container .top-bar .left-bar .buy {
+.home-navbar .navbar-container .top-bar .left-bar .txt {
     font-size: 18px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
@@ -94,6 +71,7 @@
 .home-navbar .navbar-container .top-bar .right-bar {
     width: 500px;
     height: auto;
+    margin-top: 10px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -136,21 +114,30 @@
 }
 
 .home-navbar .navbar-container .top-bar .right-bar .signup-login .signup-link {
-    font-size: 16px;
     margin-right: 5px;
+    font-size: 18px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     color: white;
 }
 
 .home-navbar .navbar-container .top-bar .right-bar .signup-login .login-link {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     color: white;
 }
 
+.home-navbar .navbar-container .top-bar .right-bar .like-save {
+    margin-right: 30px;
+}
+
 .home-navbar .navbar-container .top-bar .right-bar .like-save .like-link {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     font-size: 18px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
@@ -161,6 +148,7 @@
     width: 40px;
     height: 40px;
     margin-left: 50px;
+    margin-bottom: 20px;
     border-radius: 24px;
 }
 
@@ -177,6 +165,7 @@
 .other-navbar .other-container .top-bar {
     width: 100%;
     height: 80px;
+    margin-top: 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -184,7 +173,7 @@
 }
 
 .other-navbar .other-container .top-bar .left {
-    width: 700px;
+    width: 1000px;
     height: auto;
     display: flex;
     flex-direction: row;
@@ -199,35 +188,7 @@
     color: white;
 }
 
-.other-navbar .other-container .top-bar .left .store {
-    font-size: 18px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-}
-
-.other-navbar .other-container .top-bar .left .watch {
-    font-size: 18px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-}
-
-.other-navbar .other-container .top-bar .left .jewelry {
-    font-size: 18px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-}
-
-.other-navbar .other-container .top-bar .left .help {
-    font-size: 18px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
-}
-
-.other-navbar .other-container .top-bar .left .buy {
+.other-navbar .other-container .top-bar .left .txt {
     font-size: 18px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
@@ -264,14 +225,15 @@
     align-items: center;
 }
 
-.other-navbar .other-container .top-bar .right .like-save .like-link {
-    font-size: 18px;
-    font-weight: bold;
-    font-family: 'Courier New', Courier, monospace;
-    color: white;
+.other-navbar .other-container .top-bar .right .like-save {
+    margin-right: 30px;
 }
 
-.other-navbar .other-container .top-bar .right .like-save .save-link {
+.other-navbar .other-container .top-bar .right .like-save .like-link {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     font-size: 18px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
@@ -279,15 +241,15 @@
 }
 
 .other-navbar .other-container .top-bar .right .signup-login .signup-link {
-    font-size: 16px;
     margin-right: 5px;
+    font-size: 18px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     color: white;
 }
 
 .other-navbar .other-container .top-bar .right .signup-login .login-link {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     font-family: 'Courier New', Courier, monospace;
     color: white;
