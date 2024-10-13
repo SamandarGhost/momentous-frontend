@@ -8,12 +8,12 @@ import PaginationItem from "@mui/material/PaginationItem";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import "../../css/watch.css";
-import { setProducts } from "./slice";
+import { setWatches } from "./slice";
 import { createSelector, Dispatch } from "@reduxjs/toolkit";
 import { Product, ProductInquiry } from "../../lib/types/product";
-import { retrieveProducts } from "./selector";
+import { retrieveWatches } from "./selector";
 import { useDispatch, useSelector } from "react-redux";
-import ProductService from "../../app/services/ProductService";
+import ProductService from "../../app/services/JewelryService";
 import { ProductCollection } from "../../lib/enums/product.enum";
 import { serverApi } from "../../lib/config";
 import { useHistory } from "react-router-dom";
@@ -28,12 +28,13 @@ import BookmarkOutlinedIcon from '@mui/icons-material/BookmarkOutlined';
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import { Watch } from "../../lib/types/watch";
 /* Redux Slice and Selector */
 const actionDispatch = (dispatch: Dispatch) => ({
-    setProducts: (data: Product[]) => dispatch(setProducts(data)),
+    setWatches: (data: Watch[]) => dispatch(setWatches(data)),
 });
-const productsRetriever = createSelector(retrieveProducts, (products) => ({
-    products,
+const watchesRetriever = createSelector(retrieveWatches, (watches) => ({
+    watches,
 }));
 
 interface ProductsProps {
@@ -43,8 +44,8 @@ interface ProductsProps {
 
 export default function WatchPage(props: ProductsProps) {
     const { onAdd } = props;
-    const { setProducts } = actionDispatch(useDispatch());
-    const { products } = useSelector(productsRetriever);
+    const { setWatches } = actionDispatch(useDispatch());
+    const { watches } = useSelector(watchesRetriever);
     const [productSearch, setProductSearch] = useState<ProductInquiry>({
         page: 1,
         limit: 8,
@@ -57,7 +58,6 @@ export default function WatchPage(props: ProductsProps) {
     useEffect(() => {
         const product = new ProductService();
 
-        product.getProducts(productSearch).then((data) => setProducts(data)).catch((err) => console.log(err));
     }, [productSearch]);
 
     useEffect(() => {
@@ -615,7 +615,7 @@ export default function WatchPage(props: ProductsProps) {
                 <Stack flexDirection={"column"} alignItems={"center"}>
                     <Stack className={"pagination-section"}>
                         <Pagination
-                            count={products.length !== 0 ? productSearch.page + 1 : productSearch.page}
+                            count={watches.length !== 0 ? productSearch.page + 1 : productSearch.page}
                             page={productSearch.page}
                             renderItem={(item) => (
                                 <PaginationItem

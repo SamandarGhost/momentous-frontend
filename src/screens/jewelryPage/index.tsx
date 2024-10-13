@@ -1,7 +1,6 @@
 import React from 'react';
 import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { Container } from "@mui/material";
-import ChosenProduct from './ChosenProduct';
 import { CartItem } from '../../lib/types/search';
 import JewelryPage from './Jewelry';
 
@@ -18,12 +17,9 @@ export default function JewelryPageMain(props: ProductsPageProps) {
   return (
     <div className={"jewelry-page"}>
       <Switch>
-        <Route path={`${products.path}/:productId`}>
-          <ChosenProduct onAdd={onAdd} />
-        </Route>
         <Route path={`${products.path}`}>
           <JewelryPage onAdd={onAdd} />
         </Route>
       </Switch>
-    </div>);
+    </div >);
 }

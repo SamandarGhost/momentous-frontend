@@ -3,10 +3,9 @@ import Advertisement from "./Advertisement";
 import ActiveUsers from "./ActiveUsers";
 import "../../css/home.css";
 import { useDispatch } from 'react-redux';
-import { setNewDishes, setPopularDishes, setTopUsers } from './slice';
 import { Dispatch } from '@reduxjs/toolkit';
 import { Product } from '../../lib/types/product';
-import ProductService from '../../app/services/ProductService';
+import ProductService from '../../app/services/JewelryService';
 import { ProductCollection } from '../../lib/enums/product.enum';
 import MemberService from '../../app/services/MemeberService';
 import { Member } from '../../lib/types/member';
@@ -15,39 +14,48 @@ import CategoryJewelries from './CategoryJewelries';
 import CategoryWatch from './CategoryWatch';
 import PopularWatches from './PopularWatches';
 import OurStore from './OurStore';
+import { setPopularWatch, setTopUsers, setTrendJewelry } from './slice';
+import { Jewelry } from '../../lib/types/jewelry';
+import { Watch } from '../../lib/types/watch';
+import JewelryService from '../../app/services/JewelryService';
+import { JewelryType } from '../../lib/enums/jewelry.enum';
+import { ProductGender } from '../../lib/types/common';
+import WatchService from '../../app/services/WatchService';
 
 /* REDUX SLICE */
 const actionDispatch = (dispatch: Dispatch) => ({
-    setPopularDishes: (data: Product[]) => dispatch(setPopularDishes(data)),
-    setNewDishes: (data: Product[]) => dispatch(setNewDishes(data)),
+    setTrendJewelry: (data: Jewelry[]) => dispatch(setTrendJewelry(data)),
+    setPopularWatch: (data: Watch[]) => dispatch(setPopularWatch(data)),
     setTopUSers: (data: Member[]) => dispatch(setTopUsers(data)),
 });
 export default function HomePage() {
-    const { setPopularDishes, setNewDishes, setTopUSers } = actionDispatch(useDispatch());
+    const { setTrendJewelry, setPopularWatch, setTopUSers } = actionDispatch(useDispatch());
 
     useEffect(() => {
         // Backend server data fetch => Data
-        const product = new ProductService();
-        product.getProducts({
+        const jewelry = new JewelryService();
+        const watch = new WatchService();
+
+        jewelry.getJewelries({
             page: 1,
             limit: 4,
-            order: "productViews",
-            productCollection: ProductCollection.DISH,
+            order: "jewelryViews",
+            jewelryGender: ProductGender.WOMAN,
         })
             .then(data => {
                 console.log("data passed here");
-                setPopularDishes(data);
+                setTrendJewelry(data);
             }).catch((err) => console.log(err));
 
-        product.getProducts({
+        watch.getWatches({
             page: 1,
             limit: 4,
             order: "createdAt",
-            productCollection: ProductCollection.DISH,
+            watchGender: ProductGender.MAN,
         })
             .then(data => {
                 console.log("data passed here");
-                setNewDishes(data);
+                setPopularWatch(data);
             }).catch((err) => console.log(err));
 
         const member = new MemberService();

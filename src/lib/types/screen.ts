@@ -1,32 +1,41 @@
+import { Jewelry } from "./jewelry";
 import { Member } from "./member";
 import { Order } from "./order";
-import { Product } from "./product";
+import { Watch } from "./watch";
 
 /** React APP STATE */
 export interface AppRootState {
     homePage: HomePageState;
-    productsPage: ProductsPageState;
+    jewelriesPage: JewelryPageState;
+    watchesPage: WatchPageState;
     ordersPage: OrdersPageState;
 };
 
-/** HOMEPAGE*/ 
+/** HOMEPAGE*/
 export interface HomePageState {
-    popularDishes: Product[];
-    newDishes: Product[];
+    trendJewelry: Jewelry[];
+    popularWatch: Watch[];
     topUsers: Member[];
 };
 
-/* PRODUCTS PAGE */
-export interface ProductsPageState {
-    restaurant: Member | null;
-    choosenProduct: Product | null;
-    products: Product[];
+/* Jewelry PAGE */
+export interface JewelryPageState {
+    owner: Member | null;
+    jewelryDetail: Jewelry | null;
+    jewelries: Jewelry[];
+};
+
+/* Watch PAGE */
+export interface WatchPageState {
+    owner: Member | null;
+    watchDetail: Watch | null;
+    watches: Watch[];
 };
 
 
-/* ORDERS PAGE*/ 
+/* ORDERS PAGE*/
 export interface OrdersPageState {
-    pausedOrders: Order [];
+    pausedOrders: Order[];
     processOrders: Order[];
     finishedOrders: Order[];
 };

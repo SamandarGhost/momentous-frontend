@@ -22,6 +22,7 @@ import { useGlobals } from './hooks/useGlobals';
 import WatchPageMain from '../screens/watchPage';
 import JewelryPageMain from '../screens/jewelryPage';
 import FavoritePage from '../screens/favoritePage';
+import ChosenProduct from '../screens/jewelryPage/ChosenProduct';
 function App() {
   const location = useLocation();
   const { setAuthMember } = useGlobals();

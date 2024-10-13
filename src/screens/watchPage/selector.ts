@@ -1,19 +1,19 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { AppRootState } from "../../lib/types/screen";
 
- const selectProductsPage = (state: AppRootState ) => state.productsPage;
+const selectWatchesPage = (state: AppRootState) => state.watchesPage;
 
- export const retrieveRestaurant = createSelector(
-    selectProductsPage,
-    (ProductsPage) => ProductsPage.restaurant
- );
+export const retrieveOwner = createSelector(
+   selectWatchesPage,
+   (WatchesPage) => WatchesPage.owner
+);
 
- export const retrieveChoosenProduct = createSelector(
-    selectProductsPage,
-    (ProductsPage) => ProductsPage.choosenProduct
- );
+export const retrieveWatchDetail = createSelector(
+   selectWatchesPage,
+   (WatchesPage) => WatchesPage.watchDetail
+);
 
- export const retrieveProducts = createSelector(
-    selectProductsPage,
-    (ProductsPage) => ProductsPage.products
- );
+export const retrieveWatches = createSelector(
+   selectWatchesPage,
+   (WatchesPage) => WatchesPage.watches
+);

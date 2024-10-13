@@ -1,30 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { ProductsPageState } from "../../lib/types/screen";
+import { WatchPageState } from "../../lib/types/screen";
 
 
-const initialState: ProductsPageState = {
-    restaurant: null,
-    choosenProduct: null,
-    products: [],
+const initialState: WatchPageState = {
+    owner: null,
+    watchDetail: null,
+    watches: [],
 };
 
-const productsPageSlice = createSlice({
-    name: "productsPage",
+const watchPageSlice = createSlice({
+    name: "watchesPage",
     initialState,
     reducers: {
-        setRestaurant: (state, action) => {
-            state.restaurant = action.payload;
+        setOwner: (state, action) => {
+            state.owner = action.payload;
         },
-        setChoosenProduct: (state, action) => {
-            state.choosenProduct = action.payload;
+        setWatchDetail: (state, action) => {
+            state.watchDetail = action.payload;
         },
-        setProducts: (state, action) => {
-            state.products = action.payload;
+        setWatches: (state, action) => {
+            state.watches = action.payload;
         },
     },
 });
 
-export const { setRestaurant, setChoosenProduct, setProducts } = productsPageSlice.actions;
+export const { setOwner, setWatchDetail, setWatches } = watchPageSlice.actions;
 
-const ProductsPageReducer = productsPageSlice.reducer;
-export default ProductsPageReducer;
+const WatchPageReducer = watchPageSlice.reducer;
+export default WatchPageReducer;
