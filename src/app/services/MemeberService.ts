@@ -1,4 +1,4 @@
- import axios from "axios";
+import axios from "axios";
 import { serverApi } from "../../lib/config";
 import { LoginInput, Member, MemberInput, MemberUpdateInput } from "../../lib/types/member";
 class MemberService {
@@ -6,9 +6,9 @@ class MemberService {
     constructor() {
         this.path = serverApi;
     }
-    public async getTopUsers():Promise<Member[]>{
-        try{
-            const url = this.path + "/member/top-users";
+    public async getTopUsers(): Promise<Member[]> {
+        try {
+            const url = this.path + "/user/top-users";
             const result = await axios.get(url);
             return result.data;
 
@@ -18,22 +18,22 @@ class MemberService {
         }
     };
 
-    public async getRestaurant(): Promise<Member> {
-        try{
-            const url = this.path + "/member/restaurant";
+    public async getOwner(): Promise<Member> {
+        try {
+            const url = this.path + "/user/owner";
             const result = await axios.get(url);
 
-            const restaurant: Member = result.data;
-            return restaurant;
+            const owner: Member = result.data;
+            return owner;
 
         } catch (err) {
             console.log("Error getTopUsers:", err);
             throw err;
-        } 
+        }
     };
 
     public async signup(input: MemberInput): Promise<Member> {
-        try{
+        try {
             const url = this.path + "/member/signup";
             const result = await axios.post(url, input, { withCredentials: true });
             console.log("sigpup:", result);
@@ -44,12 +44,12 @@ class MemberService {
 
             return member;
 
-        } catch(err) {
+        } catch (err) {
             console.log("Error signup:", err);
             throw err;
         }
     };
-    
+
     public async login(input: LoginInput): Promise<Member> {
         try {
             const url = this.path + "/member/login";
@@ -83,7 +83,7 @@ class MemberService {
     };
 
     public async updateMember(input: MemberUpdateInput): Promise<Member> {
-        try{
+        try {
             const formData = new FormData();
             formData.append("memberNick", input.memberNick || "");
             formData.append("memberPhone", input.memberPhone || "");
@@ -96,7 +96,7 @@ class MemberService {
                 data: formData,
                 withCredentials: true,
                 headers: {
-                    "Content-Type" : "multipart/form-data",
+                    "Content-Type": "multipart/form-data",
                 },
             });
 
@@ -106,7 +106,7 @@ class MemberService {
             localStorage.setItem("memberData", JSON.stringify(member));
             return member;
 
-        } catch(err) {
+        } catch (err) {
             console.log("Error updateMember:", err);
             throw err;
         }
@@ -114,4 +114,4 @@ class MemberService {
 
 }
 
-    export default MemberService;
+export default MemberService;

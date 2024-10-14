@@ -10,7 +10,7 @@ class JewelryService {
     }
     public async getJewelries(input: JewelryInquiry): Promise<Jewelry[]> {
         try {
-            let url = `${this.path}/jewelry/all?order=${input.order}&page=${input.page}&limit=${input.limit}`;
+            let url = `${this.path}/jewelry/all?page=${input.page}&limit=${input.limit}&order=${input.order}`;
             if (input.jewelryGender) url += `&jewelryGender=${input.jewelryGender}`;
             if (input.search) url += `&search=${input.search}`;
             const result = await axios.get(url);

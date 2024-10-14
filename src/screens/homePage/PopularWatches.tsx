@@ -40,7 +40,7 @@ export default function PopularWatches() {
                             return (
                                 <Stack key={watch._id} className={'card'}>
                                     <Stack className={'card-img'}>
-                                        <img src="/img/cartier.png" className={'img'} alt="" />
+                                        <img src={imagePath} className={'img'} alt="" />
                                     </Stack>
                                     <Box className={'buttons'}>
                                         <Button className={'add-to'}>Add to Bag</Button>

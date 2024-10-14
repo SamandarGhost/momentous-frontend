@@ -32,9 +32,7 @@ export default function HomePage() {
     const { setTrendJewelry, setPopularWatch, setTopUSers } = actionDispatch(useDispatch());
 
     useEffect(() => {
-        // Backend server data fetch => Data
         const jewelry = new JewelryService();
-        const watch = new WatchService();
 
         jewelry.getJewelries({
             page: 1,
@@ -47,6 +45,8 @@ export default function HomePage() {
                 setTrendJewelry(data);
             }).catch((err) => console.log(err));
 
+
+        const watch = new WatchService();
         watch.getWatches({
             page: 1,
             limit: 4,

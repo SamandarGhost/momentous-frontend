@@ -90,9 +90,7 @@ export default function OrdersPage() {
               <img src={authMember?.memberImage ? `${serverApi}/${authMember.memberImage}` : "/icons/default-user.svg"}
                 className={"order-user-avatar"} />
               <div className={"order-user-prof"} >
-                <img src={authMember?.memberType === MemberType.RESTAURANT
-                  ? "/icons/restaurant.svg"
-                  : "/icons/user-badge.svg"} alt="" />
+                <img src="/icons/user-badge.svg" alt="" />
               </div>
             </div>
             <span className={"order-user-name"}>{authMember?.memberNick}</span>
