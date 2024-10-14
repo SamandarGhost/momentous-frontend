@@ -40,7 +40,7 @@
 }
 
 .watch-page .watches .watch-cnt .top .top-bar .gender-btn {
-  width: 200px;
+  width: 180px;
   height: 40px;
   display: flex;
   flex-direction: row;
@@ -49,7 +49,7 @@
 }
 
 .watch-page .watches .watch-cnt .top .top-bar .gender-btn .male-btn {
-  width: 70px;
+  width: 60px;
   height: 30px;
   font-family: "Roboto Serif";
   font-size: 14px;
@@ -62,7 +62,7 @@
 }
 
 .watch-page .watches .watch-cnt .top .top-bar .gender-btn .female-btn {
-  width: 120px;
+  width: 100px;
   height: 30px;
   font-family: "Roboto Serif";
   font-size: 14px;
@@ -111,10 +111,10 @@
 }
 
 .watch-page .watches .watch-cnt .top .top-bar .search .search-btn {
-  width: 130px;
+  width: 115px;
   height: 30px;
   font-family: "Roboto Serif";
-  font-size: 14px;
+  font-size: 12px;
   font-style: normal;
   font-weight: lighter;
   line-height: normal;
@@ -133,8 +133,9 @@
 }
 
 .watch-page .watches .watch-cnt .top .top-bar .sorting .sort-name {
-  width: 80px;
+  width: 60px;
   height: 30px;
+  margin-right: 7px;
   font-family: "Roboto Serif";
   font-size: 22px;
   font-style: normal;
@@ -145,11 +146,58 @@
   color: #000;
 }
 
+.watch-page .watches .watch-cnt .top .top-bar .sorting .menu-btn {
+  width: 70px;
+  font-family: "Roboto Serif";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: lighter;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
 .watch-page .watches .watch-cnt .top .top-bar .sorting .menu-btn .dawn-line {
-  width: 20px;
-  height: 30px;
+  width: 10px;
+  height: 20px;
   font-family: "Roboto Serif";
   font-size: 24px;
+  font-style: normal;
+  font-weight: lighter;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
+.watch-page .watches .watch-cnt .top .top-bar .sorting-watch {
+  width: auto;
+  height: 40px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.watch-page .watches .watch-cnt .top .top-bar .sorting-watch .sort-name {
+  width: auto;
+  height: 30px;
+  margin-right: 7px;
+  font-family: "Roboto Serif";
+  font-size: 22px;
+  font-style: normal;
+  font-weight: lighter;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
+.watch-page .watches .watch-cnt .top .top-bar .sorting-watch .menu-btn {
+  width: 160px;
+  font-family: "Roboto Serif";
+  font-size: 14px;
   font-style: normal;
   font-weight: lighter;
   line-height: normal;
@@ -161,7 +209,7 @@
 .watch-page .watches .watch-cnt .top .filter {
   width: 100%;
   height: auto;
-  margin-top: 50px;
+  margin-top: 70px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -169,10 +217,12 @@
 }
 
 .watch-page .watches .watch-cnt .top .filter .brands-name {
-  width: 20px;
-  height: 30px;
+  width: auto;
+  height: auto;
+  margin-left: 10px;
+  margin-bottom: 10px;
   font-family: "Roboto Serif";
-  font-size: 24px;
+  font-size: 52px;
   font-style: normal;
   font-weight: lighter;
   line-height: normal;
@@ -185,7 +235,7 @@
   width: 100%;
   height: auto;
   margin-top: 10px;
-  margin-left: -8px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -194,7 +244,8 @@
 
 .watch-page .watches .watch-cnt .top .filter .brand-collection .brand-btn {
   width: auto;
-  height: 30px;
+  height: auto;
+  margin-right: 5px;
   font-family: "Roboto Serif";
   font-size: 12px;
   font-style: normal;
@@ -209,56 +260,6 @@
   background: #fff;
 }
 
-.watch-page .watches .watch-cnt .top .category-watch {
-  width: 100%;
-  height: auto;
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.watch-page .watches .watch-cnt .top .category-watch .category-watch-title {
-  width: 20px;
-  height: 30px;
-  font-family: "Roboto Serif";
-  font-size: 24px;
-  font-style: normal;
-  font-weight: lighter;
-  line-height: normal;
-  letter-spacing: 2px;
-  text-wrap: nowrap;
-  color: #000;
-}
-
-.watch-page .watches .watch-cnt .top .category-watch .category-box {
-  width: auto;
-  height: auto;
-  margin-top: 10px;
-  margin-left: -8px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.watch-page .watches .watch-cnt .top .category-watch .category-box .category-btn {
-  width: auto;
-  height: 30px;
-  font-family: "Roboto Serif";
-  font-size: 12px;
-  font-style: normal;
-  font-weight: lighter;
-  line-height: normal;
-  letter-spacing: 2px;
-  text-wrap: nowrap;
-  color: #000;
-}
-
-.watch-page .watches .watch-cnt .top .category-watch .category-box .category-btn:hover {
-  background: #fff;
-}
 
 /* Watch Card */
 
@@ -269,7 +270,7 @@
   margin-bottom: 100px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-flow: row wrap;
 }
@@ -277,6 +278,7 @@
 .watch-page .watches .watch-cnt .card {
   width: 300px;
   height: auto;
+  margin-right: 13px;
   margin-bottom: 20px;
   display: flex;
   flex-direction: column;

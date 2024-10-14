@@ -29,6 +29,7 @@ export interface WatchInquiry {
     order: string;
     page: number;
     limit: number;
+    watchFunc?: WatchFunc;
     watchBrand?: WatchBrand;
     watchGender?: ProductGender;
     search?: string;

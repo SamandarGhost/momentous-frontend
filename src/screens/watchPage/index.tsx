@@ -3,21 +3,25 @@ import { Switch, Route, useRouteMatch } from 'react-router-dom';
 import { Container } from "@mui/material";
 import { CartItem } from '../../lib/types/search';
 import WatchPage from './Watches';
+import WatchDetail from './WatchDetail';
 
-interface ProductsPageProps {
+interface WatchessPageProps {
   onAdd: (item: CartItem) => void;
 }
 
-export default function WatchPageMain(props: ProductsPageProps) {
+export default function WatchPageMain(props: WatchessPageProps) {
   const { onAdd } = props;
-  const products = useRouteMatch();
+  const watches = useRouteMatch();
 
-  console.log("products:", products);
+  console.log("products:", watches);
 
   return (
     <div className={"watch-page"}>
       <Switch>
-        <Route path={`${products.path}`}>
+        <Route path={`${watches.path}/:id`}>
+          <WatchDetail onAdd={onAdd} />
+        </Route>
+        <Route path={`${watches.path}`}>
           <WatchPage onAdd={onAdd} />
         </Route>
       </Switch>
