@@ -16,7 +16,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ProductService from "../../app/services/JewelryService";
 import { ProductCollection } from "../../lib/enums/product.enum";
 import { serverApi } from "../../lib/config";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { CartItem } from "../../lib/types/search";
 import SearchIcon from '@mui/icons-material/Search';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
@@ -32,6 +32,7 @@ import { Watch, WatchInquiry } from "../../lib/types/watch";
 import { Direction, ProductGender } from "../../lib/types/common";
 import WatchService from "../../app/services/WatchService";
 import { WatchBrand, WatchFunc } from "../../lib/enums/watch.enum";
+import { watch } from "fs";
 /* Redux Slice and Selector */
 const actionDispatch = (dispatch: Dispatch) => ({
     setWatches: (data: Watch[]) => dispatch(setWatches(data)),
@@ -53,8 +54,6 @@ export default function WatchPage(props: ProductsProps) {
         page: 1,
         limit: 16,
         order: "createdAt",
-        watchBrand: WatchBrand.CARTIER,
-        watchGender: ProductGender.MAN,
         search: "",
     });
     const [searchText, setSearchText] = useState<string>("");
@@ -65,7 +64,7 @@ export default function WatchPage(props: ProductsProps) {
 
     const [anchorElWatch, setWatchFuncAnchorEl] = useState<null | HTMLElement>(null);
     const [sortingOpenWatch, setWatchFuncSortingOpen] = useState(false);
-    const [watchSortName, setWatchSortName] = useState('Analogue');
+    const [watchSortName, setWatchSortName] = useState('All');
 
     useEffect(() => {
         const watch = new WatchService();
@@ -82,12 +81,14 @@ export default function WatchPage(props: ProductsProps) {
         }
     }, []);
 
+    console.log("watchSearch:", watchSearch);
+
     const history = useHistory();
 
     //  Handler 
-
     const searchWatchBrandHandler = (watchBrand: WatchBrand) => {
         watchSearch.page = 1;
+        watchSearch.limit = 16;
         watchSearch.watchBrand = watchBrand;
         setWatchSearch({ ...watchSearch });
     };
@@ -159,6 +160,10 @@ export default function WatchPage(props: ProductsProps) {
 
     const sortingWatchFuncHandler = (e: React.MouseEvent<HTMLLIElement>) => {
         switch (e.currentTarget.id) {
+            case 'all':
+                window.location.reload();
+                setWatchSortName('All');
+                break;
             case 'analogue':
                 watchSearch.page = 1;
                 watchSearch.watchFunc = WatchFunc.ANALOGUE
@@ -220,7 +225,8 @@ export default function WatchPage(props: ProductsProps) {
                                 }}
                                 onKeyDown={(e) => {
                                     if (e.key === "Enter") searchWatchHandler();
-                                }} />
+                                }}
+                            />
                             <Button className={'search-btn'}>
                                 Search
                                 <SearchIcon className={'finder'} />
@@ -263,6 +269,13 @@ export default function WatchPage(props: ProductsProps) {
                             <Menu anchorEl={anchorElWatch} open={sortingOpenWatch} onClose={sortingWatchFuncCloseHandler} className={'menu'}>
                                 <MenuItem
                                     onClick={sortingWatchFuncHandler}
+                                    id={'all'}
+                                    disableRipple
+                                    className={'menu-item'} sx={{ fontFamily: "Roboto Serif", fontSize: "16px", fontWeight: "lighter", letterSpacing: "2px" }}>
+                                    All
+                                </MenuItem>
+                                <MenuItem
+                                    onClick={sortingWatchFuncHandler}
                                     id={'analogue'}
                                     disableRipple
                                     className={'menu-item'} sx={{ fontFamily: "Roboto Serif", fontSize: "16px", fontWeight: "lighter", letterSpacing: "2px" }}>
@@ -295,6 +308,11 @@ export default function WatchPage(props: ProductsProps) {
                     <Stack className={'filter'}>
                         <Typography className={'brands-name'}>Watch Brands</Typography>
                         <Box className={'brand-collection'}>
+                            <Button
+                                variant={'outlined'}
+                                color={watchSearch.page === 1 ? "primary" : "secondary"}
+                                onClick={() => window.location.reload()}
+                                className={'brand-btn'}>All</Button>
                             <Button
                                 variant={'outlined'}
                                 color={watchSearch.watchBrand === WatchBrand.ROLEX ? "primary" : "secondary"}

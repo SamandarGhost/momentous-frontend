@@ -12,6 +12,8 @@ class WatchService {
     public async getWatches(input: WatchInquiry): Promise<Watch[]> {
         try {
             let url = `${this.path}/watch/all?page=${input.page}&limit=${input.limit}&order=${input.order}`;
+            if (input.watchFunc) url += `&watchFunc=${input.watchFunc}`;
+            if (input.watchBrand) url += `&watchBrand=${input.watchBrand}`;
             if (input.watchGender) url += `&watchGender=${input.watchGender}`;
             if (input.search) url += `&search=${input.search}`;
             const result = await axios.get(url);
