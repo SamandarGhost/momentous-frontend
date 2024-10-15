@@ -44,7 +44,6 @@ export default function Footer() {
             <Link className={'footer-page'} to={"/"}>Store</Link>
             <Link className={'footer-page'} to={"/watch/all"}>Watch</Link>
             <Link className={'footer-page'} to={"/jewelry/all"}>Jewelry</Link>
-            <Link className={'footer-page'} to={"/orders"}>Buy</Link>
             <Link className={'footer-page'} to={"/help"}>Help</Link>
           </Stack>
           <Stack className={'footer-us'}>

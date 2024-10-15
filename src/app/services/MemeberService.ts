@@ -34,7 +34,7 @@ class MemberService {
 
     public async signup(input: MemberInput): Promise<Member> {
         try {
-            const url = this.path + "/member/signup";
+            const url = this.path + "/user/signup";
             const result = await axios.post(url, input, { withCredentials: true });
             console.log("sigpup:", result);
 
@@ -52,7 +52,7 @@ class MemberService {
 
     public async login(input: LoginInput): Promise<Member> {
         try {
-            const url = this.path + "/member/login";
+            const url = this.path + "/user/login";
             const result = await axios.post(url, input, { withCredentials: true });
             console.log("login:", result);
 

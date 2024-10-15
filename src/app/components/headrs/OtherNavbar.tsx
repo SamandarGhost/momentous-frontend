@@ -59,7 +59,7 @@ export default function OtherNavbar(props: OtherNavbarProps) {
                         ) : null}
                         {authMember ? (
                             <Box className={'buy'}>
-                                <NavLink to={'/my-orders'} className={'txt'}>
+                                <NavLink to={'/orders'} className={'txt'}>
                                     Buy
                                 </NavLink>
                             </Box>

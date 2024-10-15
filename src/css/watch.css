@@ -265,7 +265,7 @@
 
 .watch-page .watches .watch-cnt .watch-frame {
   width: 100%;
-  height: 600px;
+  height: auto;
   margin-top: 50px;
   margin-bottom: 100px;
   display: flex;
