@@ -69,7 +69,7 @@
 
 .user-page .container .my-frame .my-right .right .user-img .img {
 	width: 200px;
-	height: auto;
+	height: 200px;
 	border-radius: 50%;
 }
 
@@ -199,6 +199,7 @@
 .user-page .settings {
 	width: 500px;
 	height: auto;
+	margin-top: 30px;
 	margin-right: 60px;
 	display: flex;
 	flex-direction: column;
@@ -352,6 +353,7 @@
 
 .user-page .settings .save-box .btn {
 	margin-top: 30px;
+	margin-bottom: 50px;
 	text-align: start;
 	font-family: "Roboto Serif";
 	font-size: 16px;

@@ -39,7 +39,7 @@ export default function ActiveUsers() {
                                             </p>
                                         </Box>
                                         <Box className={'info'}>
-                                            <Typography className={'user-location'}>{member.memberAdress}</Typography>
+                                            <Typography className={'user-location'}>{member.memberAddress}</Typography>
                                             <p className={'yes'}>
                                                 <CheckIcon className={'star'} />
                                             </p>

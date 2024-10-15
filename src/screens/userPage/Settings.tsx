@@ -19,7 +19,8 @@ export function Settings() {
     {
       memberNick: authMember?.memberNick,
       memberPhone: authMember?.memberPhone,
-      memberAdress: authMember?.memberAdress,
+      memberAddress: authMember?.memberAddress,
+      memberEmail: authMember?.memberEmail,
       memberDesc: authMember?.memberDesc,
       memberImage: authMember?.memberImage,
     }
@@ -37,7 +38,12 @@ export function Settings() {
   };
 
   const memberAddressHandler = (e: T) => {
-    memberUpdateInput.memberAdress = e.target.value;
+    memberUpdateInput.memberAddress = e.target.value;
+    setMemberUpdateInput({ ...memberUpdateInput });
+  };
+
+  const memberEmailHandler = (e: T) => {
+    memberUpdateInput.memberEmail = e.target.value;
     setMemberUpdateInput({ ...memberUpdateInput });
   };
 
@@ -52,7 +58,8 @@ export function Settings() {
       if (
         memberUpdateInput.memberNick === "" ||
         memberUpdateInput.memberPhone === "" ||
-        memberUpdateInput.memberAdress === "" ||
+        memberUpdateInput.memberAddress === "" ||
+        memberUpdateInput.memberEmail === "" ||
         memberUpdateInput.memberDesc === ""
       ) {
         throw new Error(Messages.error3);
@@ -133,10 +140,23 @@ export function Settings() {
           <input
             className={"spec-input  mb-address"}
             type="text"
-            placeholder={authMember?.memberAdress ? authMember.memberAdress : "no address"}
-            value={memberUpdateInput.memberAdress}
+            placeholder={authMember?.memberAddress ? authMember.memberAddress : "no address"}
+            value={memberUpdateInput.memberAddress}
             name="memberAddress"
             onChange={memberAddressHandler}
+          />
+        </div>
+      </Box>
+      <Box className={"input-frame"}>
+        <div className={"long-input"}>
+          <label className={"spec-label"}>Email</label>
+          <input
+            className={"spec-input mb-nick"}
+            type="text"
+            placeholder={authMember?.memberEmail ? authMember.memberEmail : "no email"}
+            value={memberUpdateInput.memberEmail}
+            name="memberNick"
+            onChange={memberEmailHandler}
           />
         </div>
       </Box>

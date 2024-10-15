@@ -100,7 +100,7 @@ export default function OrdersPage() {
           <Box className={"order-user-address"}>
             <div style={{ display: "flex" }}>
               <LocationOnIcon />
-              {authMember?.memberAdress ? authMember?.memberAdress : "Do not exist"}
+              {authMember?.memberAddress ? authMember?.memberAddress : "Do not exist"}
             </div>
           </Box>
         </Box>

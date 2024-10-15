@@ -16,7 +16,9 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import BadgeIcon from '@mui/icons-material/Badge';
 
 export default function UserPage() {
+  const history = useHistory();
   const { authMember } = useGlobals();
+  if (!authMember) history.push('/');
 
   return (
     <div className={"user-page"}>
@@ -27,7 +29,7 @@ export default function UserPage() {
           <Stack className={"my-right"}>
             <Stack className={'right'}>
               <Box className={'user-img'}>
-                <img src="/icons/default-user.svg" className={'img'} alt="" />
+                <img src={authMember?.memberImage ? `${serverApi}/${authMember.memberImage}` : "/icons/default-user.svg"} className={'img'} alt="" />
                 <Box className={'media'}>
                   <FacebookIcon className={'media-icn facebook'} />
                   <InstagramIcon className={'media-icn instagram'} />
@@ -37,27 +39,26 @@ export default function UserPage() {
               </Box>
               <Divider height="2" width="130" bg="black" />
               <Box className={'info'}>
-                <Typography className={'name'}>Samandar</Typography>
+                <Typography className={'name'}>{authMember?.memberNick}</Typography>
                 <Divider height="1" width="300" bg="black" />
                 <Typography className={'two'}>
                   <ContactPhoneIcon className={'phone'} />
-                  : 010 4867 5455</Typography>
+                  : {authMember?.memberPhone}</Typography>
                 <Divider height="1" width="300" bg="black" />
                 <Typography className={'two'}>
                   <PinDropIcon className={'phone'} />
-                  : South Korea
+                  : {authMember?.memberAddress}
                 </Typography>
                 <Divider height="1" width="300" bg="black" />
                 <Typography className={'two'}>
                   <AlternateEmailIcon className={'phone'} />
-                  : hurayrah@gmail.com
+                  : {authMember?.memberEmail}
                 </Typography>
                 <Divider height="1" width="300" bg="black" />
                 <Box className={'desc'}>
                   <Typography className={'descr'}>Description:</Typography>
                   <Typography className={'context'}>
-                    Web Developer. Student of Unversity and now learning to code.
-                    I want to be Senior SoftWare Engeener.
+                    {authMember?.memberDesc}
                   </Typography>
                   <Divider height="1" width="300" bg="black" />
                 </Box>
