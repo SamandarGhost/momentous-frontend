@@ -88,7 +88,6 @@ export default function WatchPage(props: ProductsProps) {
     //  Handler 
     const searchWatchBrandHandler = (watchBrand: WatchBrand) => {
         watchSearch.page = 1;
-        watchSearch.limit = 16;
         watchSearch.watchBrand = watchBrand;
         setWatchSearch({ ...watchSearch });
     };

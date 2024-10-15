@@ -27,10 +27,11 @@ export interface Jewelry {
 }
 
 export interface JewelryInquiry {
-    order: string;
     page: number;
     limit: number;
-    jewelryType?: JewelryType;
+    order: string;
     jewelryGender?: ProductGender;
+    jewelryType?: JewelryType;
+    jewelryMaterial?: JewelryMaterial;
     search?: string;
 }

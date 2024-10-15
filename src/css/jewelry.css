@@ -136,8 +136,21 @@
 .jewelry-page .jewelry .jewelry-cnt .top .top-bar .sorting .sort-name {
   width: 80px;
   height: 30px;
+  margin-right: 7px;
   font-family: "Roboto Serif";
   font-size: 22px;
+  font-style: normal;
+  font-weight: lighter;
+  line-height: normal;
+  letter-spacing: 2px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
+.jewelry-page .jewelry .jewelry-cnt .top .top-bar .sorting .menu-btn {
+  width: 70px;
+  font-family: "Roboto Serif";
+  font-size: 14px;
   font-style: normal;
   font-weight: lighter;
   line-height: normal;
@@ -321,12 +334,12 @@
 
 .jewelry-page .jewelry .jewelry-cnt .jewelry-frame {
   width: 100%;
-  height: auto;
+  height: 600px;
   margin-top: 50px;
   margin-bottom: 100px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-flow: row wrap;
 }
@@ -334,6 +347,7 @@
 .jewelry-page .jewelry .jewelry-cnt .card {
   width: 300px;
   height: auto;
+  margin-right: 13px;
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;

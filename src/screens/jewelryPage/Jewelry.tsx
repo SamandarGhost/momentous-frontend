@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, MouseEvent, useEffect, useState } from "react";
 import { Box, Button, Container, InputBase, Menu, MenuItem, Stack, Typography } from "@mui/material";
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
@@ -29,7 +29,10 @@ import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 import TripOriginOutlinedIcon from '@mui/icons-material/TripOriginOutlined';
-import { Jewelry } from "../../lib/types/jewelry";
+import { Jewelry, JewelryInquiry } from "../../lib/types/jewelry";
+import JewelryService from "../../app/services/JewelryService";
+import { ProductGender } from "../../lib/types/common";
+import { JewelryMaterial, JewelryType } from "../../lib/enums/jewelry.enum";
 /* Redux Slice and Selector */
 const actionDispatch = (dispatch: Dispatch) => ({
     setJewelries: (data: Jewelry[]) => dispatch(setJewelries(data)),
@@ -47,54 +50,92 @@ export default function JewelryPage(props: ProductsProps) {
     const { onAdd } = props;
     const { setJewelries } = actionDispatch(useDispatch());
     const { jewelries } = useSelector(jewelriesRetriever);
-    const [productSearch, setProductSearch] = useState<ProductInquiry>({
+    const [jewelrySearch, setJewelrySearch] = useState<JewelryInquiry>({
         page: 1,
-        limit: 8,
-        order: "createdAt",
-        productCollection: ProductCollection.DISH,
-        search: "",
+        limit: 16,
+        order: 'createdAt',
+        search: ''
     });
     const [searchText, setSearchText] = useState<string>("");
 
-    useEffect(() => {
-        const product = new ProductService();
+    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    const [sortingOpen, setSortingOpen] = useState(false);
+    const [filterSortName, setFilterSortName] = useState('New');
 
-    }, [productSearch]);
+    useEffect(() => {
+        const jewelry = new JewelryService();
+
+        jewelry.getJewelries(jewelrySearch)
+            .then((data) => setJewelries(data))
+            .catch((err) => console.log(err));
+    }, [jewelrySearch]);
 
     useEffect(() => {
         if (searchText === "") {
-            productSearch.search = "";
-            setProductSearch({ ...productSearch });
+            jewelrySearch.search = "";
+            setJewelrySearch({ ...jewelrySearch });
         }
     }, []);
 
     const history = useHistory();
 
     /* Handler */
-    const searchCollectionHandler = (collection: ProductCollection) => {
-        productSearch.page = 1;
-        productSearch.productCollection = collection;
-        setProductSearch({ ...productSearch });
-    };
+    const searchJewelryGenderHandler = (jewelryGender: ProductGender) => {
+        jewelrySearch.page = 1;
+        jewelrySearch.jewelryGender = jewelryGender;
+        setJewelrySearch({ ...jewelrySearch });
+    }
 
-    const searchOrderHandler = (order: string) => {
-        productSearch.page = 1;
-        productSearch.order = order;
-        setProductSearch({ ...productSearch });
-    };
+    const searchJewelryTypeHandler = (jewelryType: JewelryType) => {
+        jewelrySearch.page = 1;
+        jewelrySearch.jewelryType = jewelryType;
+        setJewelrySearch({ ...jewelrySearch });
+    }
 
-    const searchProductHandler = () => {
-        productSearch.search = searchText;
-        setProductSearch({ ...productSearch });
-    };
-
-    const chooseDishHandler = (id: string) => {
-        history.push(`/products/${id}`);
-    };
+    const searchJewelryMaterialHandler = (jewelryMaterial: JewelryMaterial) => {
+        jewelrySearch.page = 1;
+        jewelrySearch.jewelryMaterial = jewelryMaterial;
+        setJewelrySearch({ ...jewelrySearch });
+    }
 
     const paginationHandler = (e: ChangeEvent<any>, value: number) => {
-        productSearch.page = value;
-        setProductSearch({ ...productSearch });
+        jewelrySearch.page = value;
+        setJewelrySearch({ ...jewelrySearch });
+    };
+
+    const sortingClickHandler = (e: MouseEvent<HTMLElement>) => {
+        setAnchorEl(e.currentTarget);
+        setSortingOpen(true);
+    };
+
+    const sortingCloseHandler = () => {
+        setSortingOpen(false);
+        setAnchorEl(null);
+    };
+
+    const sortingHandler = (e: React.MouseEvent<HTMLLIElement>) => {
+        switch (e.currentTarget.id) {
+            case 'new':
+                jewelrySearch.page = 1;
+                jewelrySearch.order = "createdAt"
+                setJewelrySearch({ ...jewelrySearch, order: 'createdAt' });
+                setFilterSortName('New');
+                break;
+            case 'view':
+                jewelrySearch.page = 1;
+                jewelrySearch.order = "jewelryViews"
+                setJewelrySearch({ ...jewelrySearch, order: 'jewelryViews' });
+                setFilterSortName('View');
+                break;
+            case 'price':
+                jewelrySearch.page = 1;
+                jewelrySearch.order = "jewelryPrice"
+                setJewelrySearch({ ...jewelrySearch, order: 'jewelryPrice' });
+                setFilterSortName('Price');
+                break;
+        }
+        setSortingOpen(false);
+        setAnchorEl(null);
     };
 
     return (
@@ -103,10 +144,18 @@ export default function JewelryPage(props: ProductsProps) {
                 <Stack className={'top'}>
                     <Stack className={'top-bar'}>
                         <Box className={'gender-btn'}>
-                            <Button className={'male-btn'}>
+                            <Button
+                                variant={'outlined'}
+                                className={'male-btn'}
+                                color={jewelrySearch.jewelryGender === ProductGender.MAN ? "primary" : "secondary"}
+                                onClick={() => searchJewelryGenderHandler(ProductGender.MAN)}>
                                 Man
                             </Button>
-                            <Button className={'female-btn'}>
+                            <Button
+                                variant={'outlined'}
+                                className={'female-btn'}
+                                color={jewelrySearch.jewelryGender === ProductGender.WOMAN ? "primary" : "secondary"}
+                                onClick={() => searchJewelryGenderHandler(ProductGender.WOMAN)}>
                                 Woman
                             </Button>
                         </Box>
@@ -119,21 +168,30 @@ export default function JewelryPage(props: ProductsProps) {
                         </Box>
                         <Stack className={'sorting'}>
                             <Typography className={'sort-name'}>Sort:</Typography>
-                            <Button className={'menu-btn'}>
-                                <KeyboardArrowDownOutlinedIcon className={'dawn-line'} />
+                            <Button className={'menu-btn'} onClick={sortingClickHandler} endIcon={<KeyboardArrowDownOutlinedIcon />}>
+                                {filterSortName}
                             </Button>
-                            <Menu open={false} className={'menu'}>
-                                <MenuItem className={'menu-item'} sx={{ fontFamily: "Roboto Serif", fontSize: "20px", fontWeight: "lighter", letterSpacing: "2px" }}>
+                            <Menu anchorEl={anchorEl} open={sortingOpen} onClose={sortingCloseHandler} className={'menu'}>
+                                <MenuItem
+                                    onClick={sortingHandler}
+                                    id={'new'}
+                                    disableRipple
+                                    className={'menu-item'} sx={{ fontFamily: "Roboto Serif", fontSize: "16px", fontWeight: "lighter", letterSpacing: "2px" }}>
                                     New
                                 </MenuItem>
-                                <MenuItem className={'menu-item'} sx={{ fontFamily: "Roboto Serif", fontSize: "20px", fontWeight: "lighter", letterSpacing: "2px" }}>
+                                <MenuItem
+                                    onClick={sortingHandler}
+                                    id={'view'}
+                                    disableRipple
+                                    className={'menu-item'} sx={{ fontFamily: "Roboto Serif", fontSize: "16px", fontWeight: "lighter", letterSpacing: "2px" }}>
                                     View
                                 </MenuItem>
-                                <MenuItem className={'menu-item'} sx={{ fontFamily: "Roboto Serif", fontSize: "20px", fontWeight: "lighter", letterSpacing: "2px" }}>
-                                    Lowest Price
-                                </MenuItem>
-                                <MenuItem className={'menu-item'} sx={{ fontFamily: "Roboto Serif", fontSize: "20px", fontWeight: "lighter", letterSpacing: "2px" }}>
-                                    Highest Price
+                                <MenuItem
+                                    onClick={sortingHandler}
+                                    id={'price'}
+                                    disableRipple
+                                    className={'menu-item'} sx={{ fontFamily: "Roboto Serif", fontSize: "16px", fontWeight: "lighter", letterSpacing: "2px" }}>
+                                    Price
                                 </MenuItem>
                             </Menu>
                         </Stack>
@@ -142,484 +200,159 @@ export default function JewelryPage(props: ProductsProps) {
                         <Stack className={'category-first'}>
                             <Typography className={'category-jewelry-title'}>Category:</Typography>
                             <Box className={'material'}>
-                                <Button className={'mtr-btn'}>Gold
+                                <Button
+                                    variant={'outlined'}
+                                    className={'mtr-btn'}
+                                    color={jewelrySearch.jewelryMaterial === JewelryMaterial.GOLD ? "primary" : "secondary"}
+                                    onClick={() => searchJewelryMaterialHandler(JewelryMaterial.GOLD)}
+                                >
+                                    Gold
                                     <TripOriginOutlinedIcon className={'gold'} />
                                 </Button>
-                                <Button className={'mtr-btn'}>Silver
+                                <Button
+                                    variant={'outlined'}
+                                    className={'mtr-btn'}
+                                    color={jewelrySearch.jewelryMaterial === JewelryMaterial.SILVER ? "primary" : "secondary"}
+                                    onClick={() => searchJewelryMaterialHandler(JewelryMaterial.SILVER)}
+                                >
+                                    Silver
                                     <TripOriginOutlinedIcon className={'silver'} />
                                 </Button>
-                                <Button className={'mtr-btn'}>Titanium
+                                <Button
+                                    variant={'outlined'}
+                                    className={'mtr-btn'}
+                                    color={jewelrySearch.jewelryMaterial === JewelryMaterial.TITANIUM ? "primary" : "secondary"}
+                                    onClick={() => searchJewelryMaterialHandler(JewelryMaterial.TITANIUM)}
+                                >
+                                    Titanium
                                     <TripOriginOutlinedIcon className={'titanium'} />
                                 </Button>
-                                <Button className={'mtr-btn'}>Platinum
+                                <Button
+                                    variant={'outlined'}
+                                    className={'mtr-btn'}
+                                    color={jewelrySearch.jewelryMaterial === JewelryMaterial.PLATINUM ? "primary" : "secondary"}
+                                    onClick={() => searchJewelryMaterialHandler(JewelryMaterial.PLATINUM)}
+                                >
+                                    Platinum
                                     <TripOriginOutlinedIcon className={'platinum'} />
                                 </Button>
                             </Box>
                         </Stack>
                         <Box className={'category-box'}>
-                            <Button className={'bracelets'}>
+                            <Button
+                                variant={'outlined'}
+                                className={'bracelets'}
+                                color={jewelrySearch.jewelryType === JewelryType.BRACELET ? "primary" : "secondary"}
+                                onClick={() => searchJewelryTypeHandler(JewelryType.BRACELET)}
+                            >
                                 Bracelets
                             </Button>
-                            <Button className={'necklaces'}>
+                            <Button
+                                variant={'outlined'}
+                                className={'necklaces'}
+                                color={jewelrySearch.jewelryType === JewelryType.NECKLACE ? "primary" : "secondary"}
+                                onClick={() => searchJewelryTypeHandler(JewelryType.NECKLACE)}
+                            >
                                 Necklaces
                             </Button>
-                            <Button className={'rings'}>
+                            <Button
+                                variant={'outlined'}
+                                className={'rings'}
+                                color={jewelrySearch.jewelryType === JewelryType.RING ? "primary" : "secondary"}
+                                onClick={() => searchJewelryTypeHandler(JewelryType.RING)}
+                            >
                                 Rings
                             </Button>
-                            <Button className={'earings'}>
+                            <Button
+                                variant={'outlined'}
+                                className={'earings'}
+                                color={jewelrySearch.jewelryType === JewelryType.EARRING ? "primary" : "secondary"}
+                                onClick={() => searchJewelryTypeHandler(JewelryType.EARRING)}
+                            >
                                 Earings
                             </Button>
                         </Box>
                     </Stack>
                 </Stack>
                 <Stack className={'jewelry-frame'}>
-                    <Stack className={'card'}>
-                        <Stack className={'card-img'}>
-                            <img src="/img/rings.webp" className={'img'} alt="" />
-                        </Stack>
-                        <Box className={'buttons'}>
-                            <Box className={'sale-btns'}>
-                                <Button className={'buy'}>Buy Now
-                                    <AttachMoneyOutlinedIcon className={'icons'} />
-                                </Button>
-                                <Button className={'add-to'}>
-                                    Add To
-                                    <LocalMallOutlinedIcon className={'icons'} />
-                                </Button>
-                            </Box>
-                            <Box className={'view-btns'}>
-                                <Typography className={"views"}>20
-                                    <VisibilityIcon
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <Typography className={"views"}>20
-                                    <FavoriteOutlinedIcon className={'like'}
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <BookmarkBorderOutlinedIcon className={'book-mark'} />
-                            </Box>
-                        </Box>
-                        <Box className={'info-list'}>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry-name'}>Bracelets</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>2.000$</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Gold</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Woman</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                        </Box>
-                    </Stack>
-                    <Stack className={'card'}>
-                        <Stack className={'card-img'}>
-                            <img src="/img/rings.webp" className={'img'} alt="" />
-                        </Stack>
-                        <Box className={'buttons'}>
-                            <Box className={'sale-btns'}>
-                                <Button className={'buy'}>Buy Now
-                                    <AttachMoneyOutlinedIcon className={'icons'} />
-                                </Button>
-                                <Button className={'add-to'}>
-                                    Add To
-                                    <LocalMallOutlinedIcon className={'icons'} />
-                                </Button>
-                            </Box>
-                            <Box className={'view-btns'}>
-                                <Typography className={"views"}>20
-                                    <VisibilityIcon
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <Typography className={"views"}>20
-                                    <FavoriteOutlinedIcon className={'like'}
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <BookmarkBorderOutlinedIcon className={'book-mark'} />
-                            </Box>
-                        </Box>
-                        <Box className={'info-list'}>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry-name'}>Bracelets</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>2.000$</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Gold</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Woman</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                        </Box>
-                    </Stack>
-                    <Stack className={'card'}>
-                        <Stack className={'card-img'}>
-                            <img src="/img/rings.webp" className={'img'} alt="" />
-                        </Stack>
-                        <Box className={'buttons'}>
-                            <Box className={'sale-btns'}>
-                                <Button className={'buy'}>Buy Now
-                                    <AttachMoneyOutlinedIcon className={'icons'} />
-                                </Button>
-                                <Button className={'add-to'}>
-                                    Add To
-                                    <LocalMallOutlinedIcon className={'icons'} />
-                                </Button>
-                            </Box>
-                            <Box className={'view-btns'}>
-                                <Typography className={"views"}>20
-                                    <VisibilityIcon
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <Typography className={"views"}>20
-                                    <FavoriteOutlinedIcon className={'like'}
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <BookmarkBorderOutlinedIcon className={'book-mark'} />
-                            </Box>
-                        </Box>
-                        <Box className={'info-list'}>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry-name'}>Bracelets</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>2.000$</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Gold</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Woman</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                        </Box>
-                    </Stack>
-                    <Stack className={'card'}>
-                        <Stack className={'card-img'}>
-                            <img src="/img/rings.webp" className={'img'} alt="" />
-                        </Stack>
-                        <Box className={'buttons'}>
-                            <Box className={'sale-btns'}>
-                                <Button className={'buy'}>Buy Now
-                                    <AttachMoneyOutlinedIcon className={'icons'} />
-                                </Button>
-                                <Button className={'add-to'}>
-                                    Add To
-                                    <LocalMallOutlinedIcon className={'icons'} />
-                                </Button>
-                            </Box>
-                            <Box className={'view-btns'}>
-                                <Typography className={"views"}>20
-                                    <VisibilityIcon
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <Typography className={"views"}>20
-                                    <FavoriteOutlinedIcon className={'like'}
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <BookmarkBorderOutlinedIcon className={'book-mark'} />
-                            </Box>
-                        </Box>
-                        <Box className={'info-list'}>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry-name'}>Bracelets</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>2.000$</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Gold</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Woman</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                        </Box>
-                    </Stack>
-                    <Stack className={'card'}>
-                        <Stack className={'card-img'}>
-                            <img src="/img/rings.webp" className={'img'} alt="" />
-                        </Stack>
-                        <Box className={'buttons'}>
-                            <Box className={'sale-btns'}>
-                                <Button className={'buy'}>Buy Now
-                                    <AttachMoneyOutlinedIcon className={'icons'} />
-                                </Button>
-                                <Button className={'add-to'}>
-                                    Add To
-                                    <LocalMallOutlinedIcon className={'icons'} />
-                                </Button>
-                            </Box>
-                            <Box className={'view-btns'}>
-                                <Typography className={"views"}>20
-                                    <VisibilityIcon
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <Typography className={"views"}>20
-                                    <FavoriteOutlinedIcon className={'like'}
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <BookmarkBorderOutlinedIcon className={'book-mark'} />
-                            </Box>
-                        </Box>
-                        <Box className={'info-list'}>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry-name'}>Bracelets</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>2.000$</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Gold</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Woman</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                        </Box>
-                    </Stack>
-                    <Stack className={'card'}>
-                        <Stack className={'card-img'}>
-                            <img src="/img/rings.webp" className={'img'} alt="" />
-                        </Stack>
-                        <Box className={'buttons'}>
-                            <Box className={'sale-btns'}>
-                                <Button className={'buy'}>Buy Now
-                                    <AttachMoneyOutlinedIcon className={'icons'} />
-                                </Button>
-                                <Button className={'add-to'}>
-                                    Add To
-                                    <LocalMallOutlinedIcon className={'icons'} />
-                                </Button>
-                            </Box>
-                            <Box className={'view-btns'}>
-                                <Typography className={"views"}>20
-                                    <VisibilityIcon
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <Typography className={"views"}>20
-                                    <FavoriteOutlinedIcon className={'like'}
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <BookmarkBorderOutlinedIcon className={'book-mark'} />
-                            </Box>
-                        </Box>
-                        <Box className={'info-list'}>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry-name'}>Bracelets</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>2.000$</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Gold</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Woman</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                        </Box>
-                    </Stack>
-                    <Stack className={'card'}>
-                        <Stack className={'card-img'}>
-                            <img src="/img/rings.webp" className={'img'} alt="" />
-                        </Stack>
-                        <Box className={'buttons'}>
-                            <Box className={'sale-btns'}>
-                                <Button className={'buy'}>Buy Now
-                                    <AttachMoneyOutlinedIcon className={'icons'} />
-                                </Button>
-                                <Button className={'add-to'}>
-                                    Add To
-                                    <LocalMallOutlinedIcon className={'icons'} />
-                                </Button>
-                            </Box>
-                            <Box className={'view-btns'}>
-                                <Typography className={"views"}>20
-                                    <VisibilityIcon
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <Typography className={"views"}>20
-                                    <FavoriteOutlinedIcon className={'like'}
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <BookmarkBorderOutlinedIcon className={'book-mark'} />
-                            </Box>
-                        </Box>
-                        <Box className={'info-list'}>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry-name'}>Bracelets</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>2.000$</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Gold</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Woman</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                        </Box>
-                    </Stack>
-                    <Stack className={'card'}>
-                        <Stack className={'card-img'}>
-                            <img src="/img/rings.webp" className={'img'} alt="" />
-                        </Stack>
-                        <Box className={'buttons'}>
-                            <Box className={'sale-btns'}>
-                                <Button className={'buy'}>Buy Now
-                                    <AttachMoneyOutlinedIcon className={'icons'} />
-                                </Button>
-                                <Button className={'add-to'}>
-                                    Add To
-                                    <LocalMallOutlinedIcon className={'icons'} />
-                                </Button>
-                            </Box>
-                            <Box className={'view-btns'}>
-                                <Typography className={"views"}>20
-                                    <VisibilityIcon
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <Typography className={"views"}>20
-                                    <FavoriteOutlinedIcon className={'like'}
-                                        sx={{ fontSize: 22, marginLeft: "5px" }}
-                                    />
-                                </Typography>
-                                <BookmarkBorderOutlinedIcon className={'book-mark'} />
-                            </Box>
-                        </Box>
-                        <Box className={'info-list'}>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry-name'}>Bracelets</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>2.000$</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Gold</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                            <Box className={'info'}>
-                                <Typography className={'jewelry'}>Woman</Typography>
-                                <p className={'yes'}>
-                                    <CheckIcon className={'star'} />
-                                </p>
-                            </Box>
-                        </Box>
-                    </Stack>
+                    {jewelries.length !== 0 ? (
+                        jewelries.map((jewelry: Jewelry) => {
+                            const imagePath = `${serverApi}/${jewelry.jewelryImages[0]}`;
+                            return (
+                                <Stack className={'card'}>
+                                    <Stack className={'card-img'}>
+                                        <img src={imagePath} className={'img'} alt="" />
+                                    </Stack>
+                                    <Box className={'buttons'}>
+                                        <Box className={'sale-btns'}>
+                                            <Button className={'buy'}>Buy Now
+                                                <AttachMoneyOutlinedIcon className={'icons'} />
+                                            </Button>
+                                            <Button className={'add-to'}
+                                                onClick={(e) => {
+                                                    onAdd({
+                                                        _id: jewelry._id,
+                                                        quantity: 1,
+                                                        name: jewelry.jewelryName,
+                                                        price: jewelry.jewelryPrice,
+                                                        image: jewelry.jewelryImages[0],
+                                                    });
+                                                    e.stopPropagation();
+                                                }}>
+                                                Add To
+                                                <LocalMallOutlinedIcon className={'icons'} />
+                                            </Button>
+                                        </Box>
+                                        <Box className={'view-btns'}>
+                                            <Typography className={"views"}>{jewelry.jewelryViews}
+                                                <VisibilityIcon
+                                                    sx={{ fontSize: 22, marginLeft: "5px" }}
+                                                />
+                                            </Typography>
+                                            <Typography className={"views"}>{jewelry.jewelryLikes}
+                                                <FavoriteOutlinedIcon className={'like'}
+                                                    sx={{ fontSize: 22, marginLeft: "5px" }}
+                                                />
+                                            </Typography>
+                                            <BookmarkBorderOutlinedIcon className={'book-mark'} />
+                                        </Box>
+                                    </Box>
+                                    <Box className={'info-list'}>
+                                        <Box className={'info'}>
+                                            <Typography className={'jewelry-name'}>{jewelry.jewelryName}</Typography>
+                                            <p className={'yes'}>
+                                                <CheckIcon className={'star'} />
+                                            </p>
+                                        </Box>
+                                        <Box className={'info'}>
+                                            <Typography className={'jewelry'}>{jewelry.jewelryPrice}$</Typography>
+                                            <p className={'yes'}>
+                                                <CheckIcon className={'star'} />
+                                            </p>
+                                        </Box>
+                                        <Box className={'info'}>
+                                            <Typography className={'jewelry'}>{jewelry.jewelryMaterial}</Typography>
+                                            <p className={'yes'}>
+                                                <CheckIcon className={'star'} />
+                                            </p>
+                                        </Box>
+                                        <Box className={'info'}>
+                                            <Typography className={'jewelry'}>{jewelry.jewelryGender}</Typography>
+                                            <p className={'yes'}>
+                                                <CheckIcon className={'star'} />
+                                            </p>
+                                        </Box>
+                                    </Box>
+                                </Stack>
+                            );
+                        })) : (<Box className={"no-data"}> No Jewelry List!!</Box>)}
                 </Stack>
 
                 <Stack flexDirection={"column"} alignItems={"center"}>
                     <Stack className={"pagination-section"}>
                         <Pagination
-                            count={jewelries.length !== 0 ? productSearch.page + 1 : productSearch.page}
-                            page={productSearch.page}
+                            count={jewelries.length !== 0 ? jewelrySearch.page + 1 : jewelrySearch.page}
+                            page={jewelrySearch.page}
                             renderItem={(item) => (
                                 <PaginationItem
                                     components={{
