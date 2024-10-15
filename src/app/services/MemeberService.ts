@@ -31,7 +31,6 @@ class MemberService {
             throw err;
         }
     };
-
     public async signup(input: MemberInput): Promise<Member> {
         try {
             const url = this.path + "/user/signup";
@@ -49,6 +48,7 @@ class MemberService {
             throw err;
         }
     };
+
 
     public async login(input: LoginInput): Promise<Member> {
         try {
@@ -69,7 +69,7 @@ class MemberService {
 
     public async logout(): Promise<boolean> {
         try {
-            const url = this.path + "/member/logout";
+            const url = this.path + "/user/logout";
             const result = await axios.post(url, {}, { withCredentials: true });
             console.log("login:", result);
 
@@ -91,7 +91,7 @@ class MemberService {
             formData.append("memberDesc", input.memberDesc || "");
             formData.append("memberImage", input.memberImage || "");
 
-            const result = await axios(`${serverApi}/member/update`, {
+            const result = await axios(`${serverApi}/user/update`, {
                 method: "POST",
                 data: formData,
                 withCredentials: true,

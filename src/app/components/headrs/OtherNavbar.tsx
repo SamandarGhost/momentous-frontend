@@ -102,11 +102,12 @@ export default function OtherNavbar(props: OtherNavbarProps) {
                             </Box>
                         ) : (
                             <><Box className={'my'}>
-                                <NavLink to={'/my-page'} className={'my-link'}>
+                                <Button className={'my-link'}>
                                     <img className="user-avatar"
                                         src={authMember?.memberImage ? `${serverApi}/${authMember.memberImage}` : "/icons/default-user.svg"}
-                                        aria-haspaup={"true"} />
-                                </NavLink>
+                                        aria-haspaup={"true"}
+                                        onClick={handleLogoutClick} />
+                                </Button>
                             </Box><Menu
                                 anchorEl={anchorEl}
                                 id="account-menu"

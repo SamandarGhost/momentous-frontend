@@ -112,7 +112,8 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                                 <Button className={'my-link'}>
                                     <img className="user-avatar"
                                         src={authMember?.memberImage ? `${serverApi}/${authMember.memberImage}` : "/icons/default-user.svg"}
-                                        aria-haspaup={"true"} />
+                                        aria-haspaup={"true"}
+                                        onClick={handleLogoutClick} />
                                 </Button>
                             </Box><Menu
                                 anchorEl={anchorEl}
