@@ -19,7 +19,6 @@ import { sweetErrorHandling, sweetTopSuccessAlert } from '../lib/sweetAlert';
 import { Messages } from '../lib/config';
 import MemberService from './services/MemeberService';
 import { useGlobals } from './hooks/useGlobals';
-import WatchPageMain from '../screens/watchPage';
 import JewelryPageMain from '../screens/jewelryPage';
 import FavoritePage from '../screens/favoritePage';
 function App() {
@@ -83,9 +82,6 @@ function App() {
           handleLogoutRequest={handleLogoutRequest}
         />}
       <Switch>
-        <Route path="/watch/all">
-          <WatchPageMain onAdd={onAdd} />
-        </Route>
         <Route path="/jewelry/all">
           <JewelryPageMain onAdd={onAdd} />
         </Route>

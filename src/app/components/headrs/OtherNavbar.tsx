@@ -40,11 +40,6 @@ export default function OtherNavbar(props: OtherNavbarProps) {
                                 Store
                             </NavLink>
                         </Box>
-                        <Box className={'watch'}>
-                            <NavLink to={'/watch/all'} className={'txt'}>
-                                Watch
-                            </NavLink>
-                        </Box>
                         <Box className={'jewelry'}>
                             <NavLink to={'/jewelry/all'} className={'txt'}>
                                 Jewelry

@@ -2,8 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 import { HomePageState } from "../../lib/types/screen";
 
 const initialState: HomePageState = {
+    newJewelry: [],
     trendJewelry: [],
-    popularWatch: [],
     topUsers: [],
 };
 
@@ -14,8 +14,8 @@ const homePageSlice = createSlice({
         setTrendJewelry: (state, action) => {
             state.trendJewelry = action.payload;
         },
-        setPopularWatch: (state, action) => {
-            state.popularWatch = action.payload;
+        setNewJewelry: (state, action) => {
+            state.newJewelry = action.payload;
         },
         setTopUsers: (state, action) => {
             state.topUsers = action.payload;
@@ -23,7 +23,7 @@ const homePageSlice = createSlice({
     },
 });
 
-export const { setTrendJewelry, setPopularWatch, setTopUsers } = homePageSlice.actions;
+export const { setTrendJewelry, setNewJewelry, setTopUsers } = homePageSlice.actions;
 
 const HomePageReducer = homePageSlice.reducer;
 export default HomePageReducer;

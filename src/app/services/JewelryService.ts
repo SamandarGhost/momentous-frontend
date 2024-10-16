@@ -15,6 +15,8 @@ class JewelryService {
             if (input.jewelryType) url += `&jewelryType=${input.jewelryType}`;
             if (input.jewelryMaterial) url += `&jewelryMaterial=${input.jewelryMaterial}`;
             if (input.search) url += `&search=${input.search}`;
+            console.log("url:", url);
+
             const result = await axios.get(url);
             console.log("getJewelries", result);
             return result.data;

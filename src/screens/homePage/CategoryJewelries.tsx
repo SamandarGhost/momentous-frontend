@@ -9,42 +9,26 @@ export default function CategoryJewelries() {
         <Container className={'category-list'}>
             <Typography className={'main-text'}>Category Jewelries</Typography>
             <Stack className={'category-main'}>
-                <Stack className={"category-1"}>
+                <NavLink to={'/jewelry/all'} className={"category-1"}>
                     <Stack className={'card-view'}>
+                        <Typography className={'bracelets'}>Earings</Typography>
                     </Stack>
-                    <Stack className={'text-category'}>
-                        <Box className={'card-text'}>
-                            <NavLink to={'/jewelery/category/bracelets'} className={'bracelets'}>Earings</NavLink>
-                        </Box>
-                    </Stack>
-                </Stack>
-                <Stack className={"category-1"}>
+                </NavLink>
+                <NavLink to={'/jewelry/all'} className={"category-1"}>
                     <Stack className={'card-view2'}>
+                        <Typography className={'bracelets'}>Necklaces</Typography>
                     </Stack>
-                    <Stack className={'text-category'}>
-                        <Box className={'card-text'}>
-                            <NavLink to={'/jewelery/category/bracelets'} className={'bracelets'}>Necklaces</NavLink>
-                        </Box>
-                    </Stack>
-                </Stack>
-                <Stack className={"category-1"}>
+                </NavLink>
+                <NavLink to={'/jewelry/all'} className={"category-1"}>
                     <Stack className={'card-view3'}>
+                        <Typography className={'bracelets'}>Rings</Typography>
                     </Stack>
-                    <Stack className={'text-category'}>
-                        <Box className={'card-text'}>
-                            <NavLink to={'/jewelery/category/bracelets'} className={'bracelets'}>Rings</NavLink>
-                        </Box>
-                    </Stack>
-                </Stack>
-                <Stack className={"category-1"}>
+                </NavLink>
+                <NavLink to={'/jewelry/all'} className={"category-1"}>
                     <Stack className={'card-view4'}>
+                        <Typography className={'bracelets'}>Bracelets</Typography>
                     </Stack>
-                    <Stack className={'text-category'}>
-                        <Box className={'card-text'}>
-                            <NavLink to={'/jewelery/category/bracelets'} className={'bracelets'}>Bracelets</NavLink>
-                        </Box>
-                    </Stack>
-                </Stack>
+                </NavLink>
             </Stack>
         </Container>
     </div>);

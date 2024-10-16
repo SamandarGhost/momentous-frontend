@@ -336,7 +336,7 @@
   width: 100%;
   height: auto;
   margin-top: 50px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -728,4 +728,121 @@
   font-size: 30px;
   line-height: 34px;
   color: #e3c08d;
+}
+
+/** Our Store **/
+
+.jewelry-page .our {
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.jewelry-page .our .name {
+  text-align: start;
+  margin-bottom: 60px;
+  margin-left: -1100px;
+  font-family: "Roboto Serif";
+  font-size: 44px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 5px;
+  color: #000;
+}
+
+.jewelry-page .our .our-store {
+  width: 1500px;
+  height: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: rgb(249, 247, 239);
+}
+
+.jewelry-page .our .our-store .main-text {
+  width: 600px;
+  height: 600px;
+  margin-left: 20px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.jewelry-page .our .our-store .main-text .title {
+  text-align: start;
+  margin-left: -200px;
+  font-family: "Roboto Serif";
+  font-size: 44px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 5px;
+  text-wrap: nowrap;
+  color: #000;
+}
+
+.jewelry-page .our .our-store .main-text .context {
+  text-align: start;
+  margin-bottom: 60px;
+  font-family: "Roboto Serif";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 100;
+  line-height: normal;
+  color: #000;
+}
+
+.jewelry-page .our .our-store .main-img {
+  width: 800px;
+  height: 600px;
+  margin-right: 20px;
+}
+
+.jewelry-page .our .our-store .main-img .img {
+  width: 800px;
+  height: 700px;
+}
+
+.jewelry-page .address {
+  width: 1500px;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.jewelry-page .address-area {
+  width: 1500px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.jewelry-page .address-area .frame {
+  width: 1500px;
+  margin-left: -120px;
+}
+
+.jewelry-page .address-area .title {
+  width: 100%;
+  margin-left: -120px;
+  text-align: start;
+  font-family: "Roboto Serif";
+  font-size: 44px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: normal;
+  color: #000;
 }

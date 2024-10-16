@@ -12,59 +12,63 @@ import { createSelector } from '@reduxjs/toolkit';
 import { useSelector } from 'react-redux';
 import CheckIcon from '@mui/icons-material/Check';
 import { serverApi } from '../../lib/config';
-import { Product } from '../../lib/types/product';
-import { ProductCollection } from '../../lib/enums/product.enum';
-import { retrievePopularWatch } from './selector';
-import { Watch } from '../../lib/types/watch';
+import { retrieveNewJewelry } from './selector';
+import { Jewelry } from '../../lib/types/jewelry';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 /* REDUX SELECTOR */
 const popularWatchRetriever = createSelector(
-    retrievePopularWatch,
-    (popularWatch) => ({ popularWatch })
+    retrieveNewJewelry,
+    (newJewelry) => ({ newJewelry })
 );
 
 
-export default function PopularWatches() {
-    const { popularWatch } = useSelector(popularWatchRetriever);
+export default function NewJewelry() {
+    const { newJewelry } = useSelector(popularWatchRetriever);
 
 
     return (<div className={"popular-watch-frame"}>
         <Container>
             <Stack className={"trand-section"}>
-                <Box className={"category-title"}>Popular Watches</Box>
-                <Box className={"category-small"}>Each watch tells a story, rich with its own history and time</Box>
+                <Box className={"category-title"}>New Jewelries</Box>
+                <Box className={"category-small"}>Each jewelry tells a story, rich with its own history and luxury</Box>
                 <Stack className={"cards-frame"}>
-                    {popularWatch.length !== 0 ? (
-                        popularWatch.map((watch: Watch) => {
-                            const imagePath = `${serverApi}/${watch.watchImages[0]}`;
+                    {newJewelry.length !== 0 ? (
+                        newJewelry.map((jewelry: Jewelry) => {
+                            const imagePath = `${serverApi}/${jewelry.jewelryImages[0]}`;
                             return (
-                                <Stack key={watch._id} className={'card'}>
+                                <Stack key={jewelry._id} className={'card'}>
                                     <Stack className={'card-img'}>
                                         <img src={imagePath} className={'img'} alt="" />
                                     </Stack>
                                     <Box className={'buttons'}>
                                         <Button className={'add-to'}>Add to Bag</Button>
-                                        <Typography className={"views"}>{watch.watchViews}
+                                        <Typography className={"views"}>{jewelry.jewelryViews}
                                             <VisibilityIcon
-                                                sx={{ fontSize: 24, marginLeft: "10px" }}
+                                                sx={{ fontSize: 24, marginLeft: "5px" }}
+                                            />
+                                        </Typography>
+                                        <Typography className={"like"}>{jewelry.jewelryLikes}
+                                            <FavoriteBorderOutlinedIcon
+                                                sx={{ fontSize: 24, marginLeft: "5px" }}
                                             />
                                         </Typography>
                                     </Box>
                                     <Box className={'info-list'}>
                                         <Box className={'info'}>
-                                            <Typography className={'watch-name'}>{watch.watchName}</Typography>
+                                            <Typography className={'watch-name'}>{jewelry.jewelryName}</Typography>
                                             <p className={'yes'}>
                                                 <CheckIcon className={'star'} />
                                             </p>
                                         </Box>
                                         <Box className={'info'}>
-                                            <Typography className={'watch-price'}>{watch.watchPrice}$</Typography>
+                                            <Typography className={'watch-price'}>{jewelry.jewelryPrice}$</Typography>
                                             <p className={'yes'}>
                                                 <CheckIcon className={'star'} />
                                             </p>
                                         </Box>
                                         <Box className={'info'}>
-                                            <Typography className={'watch-func'}>{watch.watchFunc}</Typography>
+                                            <Typography className={'watch-func'}>{jewelry.jewelryGender}</Typography>
                                             <p className={'yes'}>
                                                 <CheckIcon className={'star'} />
                                             </p>

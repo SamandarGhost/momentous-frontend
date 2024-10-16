@@ -10,9 +10,9 @@ export const retrieveTrendJewelry = createSelector(
    (HomePage) => HomePage.trendJewelry
 );
 
-export const retrievePopularWatch = createSelector(
+export const retrieveNewJewelry = createSelector(
    selectHomePage,
-   (HomePage) => HomePage.popularWatch
+   (HomePage) => HomePage.newJewelry
 );
 
 export const retrieveTopUsers = createSelector(

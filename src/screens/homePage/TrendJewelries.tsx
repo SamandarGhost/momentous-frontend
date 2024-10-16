@@ -19,6 +19,7 @@ import BookmarkSharpIcon from '@mui/icons-material/BookmarkSharp';
 import { serverApi } from '../../lib/config';
 import { Margin } from '@mui/icons-material';
 import { Jewelry } from '../../lib/types/jewelry';
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 /* REDUX SELECTOR */
 const trendJewelryRetriever = createSelector(
@@ -49,7 +50,12 @@ export default function TrendJewelries() {
                                         <Button className={'add-to'}>Add to Bag</Button>
                                         <Typography className={"views"}>{jewelry.jewelryViews}
                                             <VisibilityIcon
-                                                sx={{ fontSize: 24, marginLeft: "10px" }}
+                                                sx={{ fontSize: 24, marginLeft: "5px" }}
+                                            />
+                                        </Typography>
+                                        <Typography className={"like"}>{jewelry.jewelryViews}
+                                            <FavoriteBorderOutlinedIcon
+                                                sx={{ fontSize: 24, marginLeft: "5px" }}
                                             />
                                         </Typography>
                                     </Box>

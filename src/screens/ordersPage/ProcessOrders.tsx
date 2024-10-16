@@ -14,11 +14,12 @@ import { OrderStatus } from "../../lib/enums/order.enum";
 import OrderService from "../../app/services/OrderService";
 import { T } from "../../lib/types/common";
 import { sweetErrorHandling } from "../../lib/sweetAlert";
+import { Jewelry } from "../../lib/types/jewelry";
 
 //** Redux Selector */
 const processOrdersRetriever = createSelector(
     retrieveProcessOrders,
-    (processOrders) => ({processOrders})
+    (processOrders) => ({ processOrders })
 );
 
 interface ProcessOrdersProps {
@@ -26,60 +27,63 @@ interface ProcessOrdersProps {
 }
 
 export default function ProcessOrders(props: ProcessOrdersProps) {
-    const {setValue} = props;
-    const {authMember, setOrderBuilder} = useGlobals();
-    const {processOrders} = useSelector(processOrdersRetriever);
+    const { setValue } = props;
+    const { authMember, setOrderBuilder } = useGlobals();
+    const { processOrders } = useSelector(processOrdersRetriever);
 
-const finishedOrderHandler = async (e: T) => {
-    try {
-        if(!authMember) throw new Error(Messages.error2);
-        // Payment Process
-        const orderId = e.target.value;
-        const input: OrderUpdateInput = {
-            orderId: orderId,
-            orderStatus: OrderStatus.FINISH,
-        };
+    const finishedOrderHandler = async (e: T) => {
+        try {
+            if (!authMember) throw new Error(Messages.error2);
+            // Payment Process
+            const orderId = e.target.value;
+            const input: OrderUpdateInput = {
+                orderId: orderId,
+                orderStatus: OrderStatus.FINISH,
+            };
 
-        const confirmation = window.confirm("Have you received your order?");
-        if(confirmation) {
-            const order = new OrderService();
-            await order.updateOrder(input);
-            setValue("3");
-            setOrderBuilder( new Date());
+            const confirmation = window.confirm("Have you received your order?");
+            if (confirmation) {
+                const order = new OrderService();
+                await order.updateOrder(input);
+                setValue("3");
+                setOrderBuilder(new Date());
+            }
+
+        } catch (err) {
+            console.log(err);
+            sweetErrorHandling(err).then();
         }
+    };
 
-    } catch(err) {
-        console.log(err);
-        sweetErrorHandling(err).then();
-    }
-};
-
-    return(
+    return (
         <TabPanel value={"2"}>
             <Stack>
                 {processOrders.map((order: Order) => {
 
-                    return(
+                    return (
                         <Box key={order._id} className={"order-main-box"}>
                             <Box className={"order-box-scroll"}>
                                 {order?.orderItems?.map((item: OrderItem) => {
-                                    const product: Product = order.productData.filter(
-                                        (ele: Product) => item.productId === ele._id
+                                    const jewelry: Jewelry = order.productData.filter(
+                                        (ele: Jewelry) => item.productId === ele._id
                                     )[0];
-                                    const imagePath = `${serverApi}/${product?.productImages[0]}`;
-                                    return(
+                                    const imagePath = `${serverApi}/${jewelry?.jewelryImages[0]}`;
+                                    return (
                                         <Box key={item._id} className={"orders-name-price"}>
-                                            <img 
-                                              src={imagePath}
-                                              className={"order-dish-img"}  />
-                                              <p className={"title-dish"}>{product?.productName}</p>
-                                              <Box className={"price-box"}>
-                                                <p>${item.itemPrice}</p>
-                                                <img src={"/icons/close.svg"}/>
-                                                <p>{item.itemQuantity}</p>
-                                                <img src={"/icons/pause.svg"}/>
-                                                <p style={{marginLeft: "15px"}}>${item.itemQuantity * item.itemPrice}</p>
-                                              </Box>
+                                            <Box className={'box-img'}>
+                                                <img
+                                                    src={imagePath}
+                                                    className={"order-dish-img"} />
+                                                <p className={"title-dish"}>{jewelry?.jewelryName}</p>
+                                                <p className={"title-gender"}>For:{jewelry?.jewelryGender}</p>
+                                            </Box>
+                                            <Box className={"price-box"}>
+                                                <p className={'jewelry-price'}>${item.itemPrice}</p>
+                                                <img src={"/icons/close.svg"} />
+                                                <p className={'jewelry-quantity'}>{item.itemQuantity}</p>
+                                                <img src={"/icons/pause.svg"} />
+                                                <p className={'jewelry-total'} style={{ marginLeft: "15px" }}>${item.itemQuantity * item.itemPrice}</p>
+                                            </Box>
                                         </Box>
                                     );
                                 })}
@@ -88,20 +92,20 @@ const finishedOrderHandler = async (e: T) => {
                                 <Box className={"box-total"}>
                                     <p>Product price</p>
                                     <p>${order.orderTotal - order.orderDelivery}</p>
-                                    <img src={"/icons/plus.svg"} style={{marginLeft: "10px"}}/>
+                                    <img src={"/icons/plus.svg"} style={{ marginLeft: "10px" }} />
                                     <p>delivery cost</p>
                                     <p>${order.orderDelivery}</p>
-                                    <img 
-                                      src={"/icons/pause.svg"} 
-                                      style={{marginLeft: "10px"}} />
-                                      <p>Total</p>
-                                      <p>${order.orderTotal}</p>
+                                    <img
+                                        src={"/icons/pause.svg"}
+                                        style={{ marginLeft: "10px" }} />
+                                    <p>Total</p>
+                                    <p>${order.orderTotal}</p>
                                 </Box>
                                 <p className={"data-compl"}>
                                     {moment().format("YY-MM-DD HH:mm")}
                                 </p>
                                 <Button value={order._id} variant="contained" className={"verify-button"} onClick={finishedOrderHandler}>
-                                    Verify to Fulfil
+                                    Verify
                                 </Button>
                             </Box>
                         </Box>
@@ -110,9 +114,9 @@ const finishedOrderHandler = async (e: T) => {
 
                 {!processOrders || (processOrders?.length === 0 && (
                     <Box display={"flex"} flexDirection={"row"} justifyContent={"center"}>
-                        <img 
-                          src={"/icons/noimage-list.svg"}
-                          style={{width: 300, height: 300}} />
+                        <img
+                            src={"/icons/noimage-list.svg"}
+                            style={{ width: 300, height: 300 }} />
                     </Box>
                 ))}
             </Stack>
