@@ -99,8 +99,8 @@ export default function JewelryPage(props: ProductsProps) {
         setJewelrySearch({ ...jewelrySearch });
     }
 
-    const jewelryDetailHandler = (id: string) => {
-        history.push(`/jewelry/all/${id}`);
+    const jewelryDetailHandler = (jewelryId: string) => {
+        history.push(`/jewelry/all/${jewelryId}`);
     };
 
     const paginationHandler = (e: ChangeEvent<any>, value: number) => {
@@ -282,9 +282,9 @@ export default function JewelryPage(props: ProductsProps) {
                 <Stack className={'jewelry-frame'}>
                     {jewelries.length !== 0 ? (
                         jewelries.map((jewelry: Jewelry) => {
-                            const imagePath = `${serverApi}/${jewelry.jewelryImages[0]}`;
+                            const imagePath = `${serverApi}/${jewelry?.jewelryImages[0]}`;
                             return (
-                                <Stack key={jewelry._id} className={'card'} onClick={() => jewelryDetailHandler(jewelry._id)} >
+                                <Stack key={jewelry?._id} className={'card'} onClick={() => jewelryDetailHandler(jewelry?._id)} >
                                     <Stack className={'card-img'}>
                                         <img src={imagePath} className={'img'} alt="" />
                                     </Stack>

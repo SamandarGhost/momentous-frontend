@@ -82,7 +82,7 @@ function App() {
           handleLogoutRequest={handleLogoutRequest}
         />}
       <Switch>
-        <Route path="/jewelry/all">
+        <Route path="/jewelry">
           <JewelryPageMain onAdd={onAdd} />
         </Route>
         <Route path="/orders">

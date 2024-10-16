@@ -10,7 +10,7 @@ class JewelryService {
     }
     public async getJewelries(input: JewelryInquiry): Promise<Jewelry[]> {
         try {
-            let url = `${this.path}/jewelry/all?page=${input.page}&limit=${input.limit}&order=${input.order}`;
+            let url = `${this.path}/jewelry?page=${input.page}&limit=${input.limit}&order=${input.order}`;
             if (input.jewelryGender) url += `&jewelryGender=${input.jewelryGender}`;
             if (input.jewelryType) url += `&jewelryType=${input.jewelryType}`;
             if (input.jewelryMaterial) url += `&jewelryMaterial=${input.jewelryMaterial}`;
@@ -26,9 +26,10 @@ class JewelryService {
         }
     }
 
-    public async getJewelry(productId: string): Promise<Jewelry> {
+    public async getJewelry(jewelryId: string): Promise<Jewelry> {
         try {
-            const url = `${this.path}/jewelry/all/${productId}`;
+            const url = `${this.path}/jewelry/${jewelryId}`;
+            console.log("jewelryId:", jewelryId);
             const result = await axios.get(url, { withCredentials: true });
 
             return result.data;

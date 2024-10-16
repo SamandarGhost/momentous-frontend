@@ -47,7 +47,7 @@ export default function HomeNavbar(props: HomeNavbarProps) {
                             </NavLink>
                         </Box>
                         <Box className={'jewelry'}>
-                            <NavLink to={'/jewelry/all'} className={'txt'}>
+                            <NavLink to={'/jewelry'} className={'txt'}>
                                 Jewelry
                             </NavLink>
                         </Box>
