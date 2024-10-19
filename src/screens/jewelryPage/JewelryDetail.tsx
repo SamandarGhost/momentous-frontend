@@ -68,31 +68,70 @@ export default function JewelryDetail(props: JewelryDetailProps) {
         <div className={"chosen-product"}>
             <Box className={"box"}>Jewelry Detail</Box>
             <Container className={"product-container"}>
-                <Stack className={"chosen-product-slider"}>
-                    <Swiper
-                        loop={true}
-                        spaceBetween={10}
-                        navigation={true}
-                        modules={[FreeMode, Navigation, Thumbs]}
-                        className="swiper-area"
-                    >
-                        {jewelryDetail?.jewelryImages.map((ele: string, index: number) => {
-                            const imagePath = `${serverApi}/${ele}`;
-                            return (
-                                <SwiperSlide key={index}>
-                                    <img className="slider-image" src={imagePath} />
-                                </SwiperSlide>
-                            );
-                        })}
-                    </Swiper>
+                <Stack className={'main-img-box'}>
+                    <Stack className={"chosen-product-slider"}>
+                        <Swiper
+                            loop={true}
+                            spaceBetween={10}
+                            navigation={true}
+                            modules={[FreeMode, Navigation, Thumbs]}
+                            className="swiper-area"
+                        >
+                            {jewelryDetail?.jewelryImages.map((ele: string, index: number) => {
+                                const imagePath = `${serverApi}/${ele}`;
+                                return (
+                                    <SwiperSlide key={index}>
+                                        <img className="slider-image" src={imagePath} />
+                                    </SwiperSlide>
+                                );
+                            })}
+                        </Swiper>
+                    </Stack>
+                    <Stack className={'img-box'}>
+                        <Box className={'box'}>
+                            <img src="" className={'img'} alt="" />
+                        </Box>
+                        <Box className={'box'}>
+                            <img src="" className={'img'} alt="" />
+                        </Box>
+                        <Box className={'box'}>
+                            <img src="" className={'img'} alt="" />
+                        </Box>
+                        <Box className={'box'}>
+                            <img src="" className={'img'} alt="" />
+                        </Box>
+                    </Stack>
                 </Stack>
                 <Stack className={"chosen-product-info"}>
                     <Box className={"info-box"}>
                         <strong className={"product-name"}>
-                            {jewelryDetail?.jewelryName}
+                            {/* {jewelryDetail?.jewelryName} */}
+                            Bracelet
                         </strong>
-                        <span className={"resto-name"}>{owner?.memberNick}</span>
-                        <span className={"resto-name"}>{owner?.memberPhone}</span>
+                        <Box className={'detail'}>
+                            <Box className={'type'}>
+                                <p className={'product-type text'}>Jewelry Type: </p>
+                                <p className={'product-type text-main'}>Barcelet</p>
+                            </Box>
+                            <Box className={'type'}>
+                                <p className={'product-materila text'}>Jewelry Material: </p>
+                                <p className={'product-type text-main'}>Gold</p>
+                            </Box>
+                            <Box className={'type'}>
+                                <p className={'product-gender text'}>For: </p>
+                                <p className={'product-type text-main'}>Woman</p>
+                            </Box>
+                            <Box className={'type'}>
+                                <p className={'product-size text'}>Jewelry size or length: </p>
+                                <p className={'product-type text-main'}>12 cm</p>
+                            </Box>
+                            <Box className={'type'}>
+                                <p className={'product-detail text'}>Jewelry Detail: </p>
+                                <p className={'product-type text-main'}>Dimond</p>
+                            </Box>
+                        </Box>
+                        <span className={"resto-name"}>Owner: {owner?.memberNick}</span>
+                        <span className={"resto-name"}>Phone: {owner?.memberPhone}</span>
                         <Box className={"rating-box"}>
                             <Rating name="half-rating" defaultValue={2.5} precision={0.5} />
                             <div className={"evaluation-box"}>

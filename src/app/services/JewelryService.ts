@@ -29,12 +29,11 @@ class JewelryService {
     public async getJewelry(jewelryId: string): Promise<Jewelry> {
         try {
             const url = `${this.path}/jewelry/${jewelryId}`;
-            console.log("jewelryId:", jewelryId);
             const result = await axios.get(url, { withCredentials: true });
 
             return result.data;
         } catch (err) {
-            console.log("Error, getWatch:", err);
+            console.log("Error, getJewelry:", err);
             throw err;
         }
     }

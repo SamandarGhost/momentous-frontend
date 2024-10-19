@@ -76,7 +76,7 @@ export default function NewJewelry() {
                                     </Box>
                                 </Stack>
                             );
-                        })) : (<Box className={"no-data"}>Popular Watches are not available!</Box>)}
+                        })) : (<Box className={"no-data"}>Popular Jewelries are not available!</Box>)}
                 </Stack>
             </Stack>
         </Container>
