@@ -20,6 +20,7 @@ export interface Jewelry {
     jewelryImages: string[];
     jewelryViews: number;
     jewelryLikes: number;
+    jewelryLeftCount?: number,
     createdAt: Date;
     updatedAt: Date;
     meLikely?: MeLiked;

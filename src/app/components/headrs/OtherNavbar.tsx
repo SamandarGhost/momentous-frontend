@@ -67,13 +67,14 @@ export default function OtherNavbar(props: OtherNavbarProps) {
                     </Stack>
                     <Stack className={'right'}>
                         {authMember ? (
-                            <><Box className={'like-save'}>
+                            <>
+                                {/* <Box className={'like-save'}>
                                 <NavLink to={'/favorite'} className={'like-link'}>
                                     <FavoriteBorderSharpIcon />
                                     <Divider height="20" width="1" bg="#E3C08D" />
                                     <BookmarkSharpIcon />
                                 </NavLink>
-                            </Box>
+                            </Box> */}
                                 <Basket cartItems={cartItems}
                                     onAdd={onAdd}
                                     onRemove={onRemove}

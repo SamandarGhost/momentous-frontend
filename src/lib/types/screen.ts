@@ -7,6 +7,7 @@ export interface AppRootState {
     homePage: HomePageState;
     jewelriesPage: JewelryPageState;
     ordersPage: OrdersPageState;
+    favoritePage: FavoritePageState;
 };
 
 /** HOMEPAGE*/
@@ -30,3 +31,8 @@ export interface OrdersPageState {
     processOrders: Order[];
     finishedOrders: Order[];
 };
+
+export interface FavoritePageState {
+    like: Jewelry[];
+    save: Jewelry[];
+}

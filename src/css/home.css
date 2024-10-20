@@ -273,13 +273,14 @@
   height: 30px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
 .homepage .trend-jewelry-frame .trand-section .cards-frame .card .buttons .add-to {
   width: 120px;
   height: 20px;
+  margin-left: 10px;
   text-wrap: nowrap;
   background: #e3c08d;
   border-radius: 2rem
@@ -288,6 +289,7 @@
 .homepage .trend-jewelry-frame .trand-section .cards-frame .card .buttons .views {
   width: 70px;
   height: 20px;
+  margin-right: 10px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -455,13 +457,14 @@
   height: 30px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 }
 
 .homepage .popular-watch-frame .trand-section .cards-frame .card .buttons .add-to {
   width: 120px;
   height: 20px;
+  margin-left: 10px;
   text-wrap: nowrap;
   background: #e3c08d;
   border-radius: 2rem
@@ -470,6 +473,7 @@
 .homepage .popular-watch-frame .trand-section .cards-frame .card .buttons .views {
   width: 70px;
   height: 20px;
+  margin-right: 10px;
   display: flex;
   justify-content: flex-end;
   align-items: center;

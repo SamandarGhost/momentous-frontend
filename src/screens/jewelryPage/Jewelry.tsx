@@ -100,7 +100,7 @@ export default function JewelryPage(props: ProductsProps) {
     }
 
     const jewelryDetailHandler = (jewelryId: string) => {
-        history.push(`/jewelry/all/${jewelryId}`);
+        history.push(`/jewelry/${jewelryId}`);
     };
 
     const paginationHandler = (e: ChangeEvent<any>, value: number) => {
@@ -284,7 +284,7 @@ export default function JewelryPage(props: ProductsProps) {
                         jewelries.map((jewelry: Jewelry) => {
                             const imagePath = `${serverApi}/${jewelry?.jewelryImages[0]}`;
                             return (
-                                <Stack key={jewelry?._id} className={'card'} onClick={() => jewelryDetailHandler(jewelry?._id)} >
+                                <Stack key={jewelry?._id} className={'card'} onClick={() => jewelryDetailHandler(jewelry._id)} >
                                     <Stack className={'card-img'}>
                                         <img src={imagePath} className={'img'} alt="" />
                                     </Stack>
@@ -309,26 +309,21 @@ export default function JewelryPage(props: ProductsProps) {
                                             </Button>
                                         </Box>
                                         <Box className={'view-btns'}>
+                                            <Typography className={'jewelry-name'}>{jewelry.jewelryName}</Typography>
                                             <Typography className={"views"}>{jewelry.jewelryViews}
                                                 <VisibilityIcon
                                                     sx={{ fontSize: 22, marginLeft: "5px" }}
                                                 />
                                             </Typography>
-                                            <Typography className={"views"}>{jewelry.jewelryLikes}
+                                            {/* <Typography className={"views"}>{jewelry.jewelryLikes}
                                                 <FavoriteOutlinedIcon className={'like'}
                                                     sx={{ fontSize: 22, marginLeft: "5px" }}
                                                 />
-                                            </Typography>
-                                            <BookmarkBorderOutlinedIcon className={'book-mark'} />
+                                            </Typography> */}
+                                            {/* <BookmarkBorderOutlinedIcon className={'book-mark'} /> */}
                                         </Box>
                                     </Box>
                                     <Box className={'info-list'}>
-                                        <Box className={'info'}>
-                                            <Typography className={'jewelry-name'}>{jewelry.jewelryName}</Typography>
-                                            <p className={'yes'}>
-                                                <CheckIcon className={'star'} />
-                                            </p>
-                                        </Box>
                                         <Box className={'info'}>
                                             <Typography className={'jewelry'}>{jewelry.jewelryPrice}$</Typography>
                                             <p className={'yes'}>

@@ -39,7 +39,7 @@ export default function OrdersPage() {
     page: 1,
     limit: 5,
     orderStatus: OrderStatus.PAUSE,
-  })
+  });
 
   useEffect(() => {
     const order = new OrderService();

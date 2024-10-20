@@ -9,13 +9,28 @@ import Save from "./Save";
 import "../../css/favorite.css";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import { Jewelry } from "../../lib/types/jewelry";
+import { Dispatch } from "@reduxjs/toolkit";
+import { setLike, setSave } from "./slice";
+import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { useGlobals } from "../../app/hooks/useGlobals";
+
+const actionDispatch = (dispatch: Dispatch) => ({
+    setLike: (data: Jewelry[]) => dispatch(setLike(data)),
+    setSave: (data: Jewelry[]) => dispatch(setSave(data)),
+});
 
 export default function FavoritePage() {
+    const { setLike, setSave } = actionDispatch(useDispatch());
+    const history = useHistory();
+    const { authMember } = useGlobals();
     const [value, setValue] = useState("1");
+    const [like, setMyLike] = useState<Jewelry>();
+    const [save, setMySave] = useState<Jewelry>();
     const handleChange = (e: SyntheticEvent, newValue: string) => {
         setValue(newValue);
-    }
-
+    };
     return (
         <div className={'fav-page'}>
             <Container className={'cnt'}>

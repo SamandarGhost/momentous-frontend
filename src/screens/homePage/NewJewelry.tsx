@@ -48,11 +48,11 @@ export default function NewJewelry() {
                                                 sx={{ fontSize: 24, marginLeft: "5px" }}
                                             />
                                         </Typography>
-                                        <Typography className={"like"}>{jewelry.jewelryLikes}
+                                        {/* <Typography className={"like"}>{jewelry.jewelryLikes}
                                             <FavoriteBorderOutlinedIcon
                                                 sx={{ fontSize: 24, marginLeft: "5px" }}
                                             />
-                                        </Typography>
+                                        </Typography> */}
                                     </Box>
                                     <Box className={'info-list'}>
                                         <Box className={'info'}>

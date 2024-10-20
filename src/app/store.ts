@@ -3,6 +3,7 @@ import HomePageReducer from '../screens/homePage/slice';
 import reduxLogger from 'redux-logger';
 import OrdersPageReducer from '../screens/ordersPage/slice';
 import JewelryPageReducer from '../screens/jewelryPage/slice';
+import FavoritePageReducer from '../screens/favoritePage/slice';
 
 export const store = configureStore({
   middleware: (getDefaultMiddlware) =>
@@ -12,6 +13,7 @@ export const store = configureStore({
     homePage: HomePageReducer,
     jewelriesPage: JewelryPageReducer,
     ordersPage: OrdersPageReducer,
+    favoritePage: FavoritePageReducer,
   },
 });
 

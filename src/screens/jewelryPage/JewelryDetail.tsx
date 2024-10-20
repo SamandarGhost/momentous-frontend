@@ -139,10 +139,10 @@ export default function JewelryDetail(props: JewelryDetailProps) {
                                     <RemoveRedEyeIcon sx={{ mr: "10px" }} />
                                     <span>{jewelryDetail?.jewelryViews}</span>
                                 </div>
-                                <div className={"product-view"}>
+                                {/* <div className={"product-view"}>
                                     <FavoriteOutlinedIcon sx={{ mr: "10px" }} />
                                     <span>{jewelryDetail?.jewelryViews}</span>
-                                </div>
+                                </div> */}
                             </div>
                         </Box>
                         <p className={"product-desc"}>

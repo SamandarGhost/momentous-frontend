@@ -53,11 +53,11 @@ export default function TrendJewelries() {
                                                 sx={{ fontSize: 24, marginLeft: "5px" }}
                                             />
                                         </Typography>
-                                        <Typography className={"like"}>{jewelry.jewelryViews}
+                                        {/* <Typography className={"like"}>{jewelry.jewelryViews}
                                             <FavoriteBorderOutlinedIcon
                                                 sx={{ fontSize: 24, marginLeft: "5px" }}
                                             />
-                                        </Typography>
+                                        </Typography> */}
                                     </Box>
                                     <Box className={'info-list'}>
                                         <Box className={'info'}>
