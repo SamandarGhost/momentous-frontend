@@ -7,7 +7,6 @@ import { createSelector } from "@reduxjs/toolkit";
 import { retrieveProcessOrders } from "./selector";
 import { useSelector } from "react-redux";
 import { Order, OrderItem, OrderUpdateInput } from "../../lib/types/order";
-import { Product } from "../../lib/types/product";
 import { Messages, serverApi } from "../../lib/config";
 import { useGlobals } from "../../app/hooks/useGlobals";
 import { OrderStatus } from "../../lib/enums/order.enum";

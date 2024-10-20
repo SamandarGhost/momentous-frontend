@@ -4,7 +4,6 @@ import TabPanel from "@mui/lab/TabPanel";
 import { createSelector } from "@reduxjs/toolkit";
 import { retrieveFinishedOrders } from "./selector";
 import { useSelector } from "react-redux";
-import { Product } from "../../lib/types/product";
 import { serverApi } from "../../lib/config";
 import { Jewelry } from "../../lib/types/jewelry";
 import { Order, OrderItem } from "../../lib/types/order";

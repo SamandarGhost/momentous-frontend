@@ -10,7 +10,6 @@ import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import "../../css/jewelry.css";
 import { setJewelries } from "./slice";
 import { createSelector, Dispatch } from "@reduxjs/toolkit";
-import { Product, ProductInquiry } from "../../lib/types/product";
 import { retrieveJewelries } from "./selector";
 import { useDispatch, useSelector } from "react-redux";
 import ProductService from "../../app/services/JewelryService";

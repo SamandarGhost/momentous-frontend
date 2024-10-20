@@ -10,7 +10,6 @@ import CardOverflow from '@mui/joy/CardOverflow';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import DescriptionOutlined from '@mui/icons-material/DescriptionOutlined';
 import { createSelector } from '@reduxjs/toolkit';
-import { Product } from '../../lib/types/product';
 import { retrieveTrendJewelry } from './selector';
 import { useSelector } from 'react-redux';
 import StarBorderSharpIcon from '@mui/icons-material/StarBorderSharp';
@@ -20,6 +19,7 @@ import { serverApi } from '../../lib/config';
 import { Margin } from '@mui/icons-material';
 import { Jewelry } from '../../lib/types/jewelry';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import { useHistory } from 'react-router-dom';
 
 /* REDUX SELECTOR */
 const trendJewelryRetriever = createSelector(
@@ -30,7 +30,12 @@ const trendJewelryRetriever = createSelector(
 
 export default function TrendJewelries() {
     const { trendJewelry } = useSelector(trendJewelryRetriever);
+    const history = useHistory();
 
+
+    const jewelryDetailHandler = (jewelryId: string) => {
+        history.push(`/jewelry/${jewelryId}`);
+    };
 
     return (<div className={"trend-jewelry-frame"}>
         <Container>
@@ -42,7 +47,7 @@ export default function TrendJewelries() {
                         trendJewelry.map((jewelry: Jewelry) => {
                             const imagePath = `${serverApi}/${jewelry.jewelryImages[0]}`;
                             return (
-                                <Stack key={jewelry._id} className={'card'}>
+                                <Stack key={jewelry._id} className={'card'} onClick={() => jewelryDetailHandler(jewelry._id)}>
                                     <Stack className={'card-img'}>
                                         <img src={imagePath} className={'img'} alt="" />
                                     </Stack>

@@ -12,7 +12,6 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import { createSelector, Dispatch } from "@reduxjs/toolkit";
-import { Product } from "../../lib/types/product";
 import { Member } from "../../lib/types/member";
 import { useParams } from "react-router-dom";
 import MemberService from "../../app/services/MemeberService";

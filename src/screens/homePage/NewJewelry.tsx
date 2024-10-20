@@ -15,6 +15,7 @@ import { serverApi } from '../../lib/config';
 import { retrieveNewJewelry } from './selector';
 import { Jewelry } from '../../lib/types/jewelry';
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import { useHistory } from 'react-router-dom';
 
 /* REDUX SELECTOR */
 const popularWatchRetriever = createSelector(
@@ -26,6 +27,10 @@ const popularWatchRetriever = createSelector(
 export default function NewJewelry() {
     const { newJewelry } = useSelector(popularWatchRetriever);
 
+    const history = useHistory();
+    const jewelryDetailHandler = (jewelryId: string) => {
+        history.push(`/jewelry/${jewelryId}`);
+    };
 
     return (<div className={"popular-watch-frame"}>
         <Container>
@@ -37,7 +42,7 @@ export default function NewJewelry() {
                         newJewelry.map((jewelry: Jewelry) => {
                             const imagePath = `${serverApi}/${jewelry.jewelryImages[0]}`;
                             return (
-                                <Stack key={jewelry._id} className={'card'}>
+                                <Stack key={jewelry._id} className={'card'} onClick={() => jewelryDetailHandler(jewelry._id)}>
                                     <Stack className={'card-img'}>
                                         <img src={imagePath} className={'img'} alt="" />
                                     </Stack>

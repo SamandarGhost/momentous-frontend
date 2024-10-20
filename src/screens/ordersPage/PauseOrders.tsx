@@ -6,7 +6,6 @@ import { createSelector } from "@reduxjs/toolkit";
 import { retrievePausedOrders } from "./selector";
 import { useSelector } from "react-redux";
 import { Order, OrderItem, OrderUpdateInput } from "../../lib/types/order";
-import { Product } from "../../lib/types/product";
 import { Messages, serverApi } from "../../lib/config";
 import { useGlobals } from "../../app/hooks/useGlobals";
 import { sweetErrorHandling } from "../../lib/sweetAlert";
