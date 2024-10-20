@@ -288,13 +288,13 @@ export default function JewelryPage(props: ProductsProps) {
                         jewelries.map((jewelry: Jewelry) => {
                             const imagePath = `${serverApi}/${jewelry?.jewelryImages[0]}`;
                             return (
-                                <Stack key={jewelry?._id} className={'card'} >
+                                <Stack key={jewelry._id} className={'card'} >
                                     <Stack className={'card-img'}>
                                         <img src={imagePath} className={'img'} alt="" />
                                     </Stack>
                                     <Box className={'buttons'}>
                                         <Box className={'sale-btns'}>
-                                            <Button className={'buy'} onClick={() => jewelryDetailHandler(jewelry._id)}>Detail Page
+                                            <Button className={'buy'} onClick={() => { jewelryDetailHandler(jewelry._id) }} >Detail Page
                                             </Button>
                                             <Button className={'add-to'}
                                                 onClick={(e) => {

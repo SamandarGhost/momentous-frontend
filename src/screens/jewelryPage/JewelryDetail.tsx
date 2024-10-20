@@ -1,6 +1,6 @@
 
 import React, { useEffect } from "react";
-import { Container, Stack, Box } from "@mui/material";
+import { Container, Stack, Box, Typography } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
 import Divider from "../../app/components/divider";
@@ -24,6 +24,7 @@ import { retrieveJewelryDetail, retrieveOwner } from "./selector";
 import { Jewelry } from "../../lib/types/jewelry";
 import JewelryService from "../../app/services/JewelryService";
 import FavoriteOutlinedIcon from '@mui/icons-material/FavoriteOutlined';
+import { JewelryType } from "../../lib/enums/jewelry.enum";
 
 
 /* Redux Slice and Selector */
@@ -62,7 +63,7 @@ export default function JewelryDetail(props: JewelryDetailProps) {
             .catch((err) => console.log());
     }, []);
 
-    // if (!jewelryDetail) return null;
+    if (!jewelryDetail) return null;
 
     return (
         <div className={"chosen-product"}>
@@ -80,7 +81,7 @@ export default function JewelryDetail(props: JewelryDetailProps) {
                             {jewelryDetail?.jewelryImages.map((ele: string, index: number) => {
                                 const imagePath = `${serverApi}/${ele}`;
                                 return (
-                                    <SwiperSlide key={index}>
+                                    <SwiperSlide key={index} >
                                         <img className="slider-image" src={imagePath} />
                                     </SwiperSlide>
                                 );
@@ -88,46 +89,31 @@ export default function JewelryDetail(props: JewelryDetailProps) {
                         </Swiper>
                     </Stack>
                     <Stack className={'img-box'}>
-                        <Box className={'box'}>
-                            <img src="" className={'img'} alt="" />
-                        </Box>
-                        <Box className={'box'}>
-                            <img src="" className={'img'} alt="" />
-                        </Box>
-                        <Box className={'box'}>
-                            <img src="" className={'img'} alt="" />
-                        </Box>
-                        <Box className={'box'}>
-                            <img src="" className={'img'} alt="" />
-                        </Box>
+                        <Typography className={'detail'}>Jewelry Detail:</Typography>
+                        <Typography className={'text'}>{jewelryDetail?.jewelryDetail}</Typography>
                     </Stack>
                 </Stack>
                 <Stack className={"chosen-product-info"}>
                     <Box className={"info-box"}>
                         <strong className={"product-name"}>
-                            {/* {jewelryDetail?.jewelryName} */}
-                            Bracelet
+                            {jewelryDetail?.jewelryName}
                         </strong>
                         <Box className={'detail'}>
                             <Box className={'type'}>
                                 <p className={'product-type text'}>Jewelry Type: </p>
-                                <p className={'product-type text-main'}>Barcelet</p>
+                                <p className={'product-type text-main'}>{jewelryDetail?.jewelryType}</p>
                             </Box>
                             <Box className={'type'}>
                                 <p className={'product-materila text'}>Jewelry Material: </p>
-                                <p className={'product-type text-main'}>Gold</p>
+                                <p className={'product-type text-main'}>{jewelryDetail?.jewelryMaterial}</p>
                             </Box>
                             <Box className={'type'}>
                                 <p className={'product-gender text'}>For: </p>
-                                <p className={'product-type text-main'}>Woman</p>
+                                <p className={'product-type text-main'}>{jewelryDetail?.jewelryGender}</p>
                             </Box>
                             <Box className={'type'}>
                                 <p className={'product-size text'}>Jewelry size or length: </p>
-                                <p className={'product-type text-main'}>12 cm</p>
-                            </Box>
-                            <Box className={'type'}>
-                                <p className={'product-detail text'}>Jewelry Detail: </p>
-                                <p className={'product-type text-main'}>Dimond</p>
+                                <p className={'product-type text-main'}>{jewelryDetail?.jewelryType === JewelryType.RING ? jewelryDetail.jewelrySize : jewelryDetail?.jewelryLength}</p>
                             </Box>
                         </Box>
                         <span className={"resto-name"}>Owner: {owner?.memberNick}</span>
@@ -157,16 +143,16 @@ export default function JewelryDetail(props: JewelryDetailProps) {
                         </div>
                         <div className={"button-box"}>
                             <Button
-                                // onClick={(e) => {
-                                //     e.stopPropagation();
-                                //     onAdd({
-                                //         _id: jewelryDetail?._id,
-                                //         quantity: 1,
-                                //         name: jewelryDetail?.jewelryName,
-                                //         price: jewelryDetail?.jewelryPrice,
-                                //         image: jewelryDetail?.jewelryImages[0],
-                                //     });
-                                // }}
+                                onClick={(e) => {
+                                    onAdd({
+                                        _id: jewelryDetail?._id,
+                                        name: jewelryDetail?.jewelryName,
+                                        price: jewelryDetail?.jewelryPrice,
+                                        image: jewelryDetail?.jewelryImages[0],
+                                        quantity: 1,
+                                    });
+                                    e.stopPropagation();
+                                }}
                                 variant="contained"
                             >
                                 Add To

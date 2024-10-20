@@ -18,7 +18,7 @@ export default function JewelryPageMain(props: ProductsPageProps) {
   return (
     <div className={"jewelry-page"}>
       <Switch>
-        <Route path={`${products.path}/:id`}>
+        <Route path={`${products.path}/:jewelryId`}>
           <JewelryDetail onAdd={onAdd} />
         </Route>
         <Route path={`${products.path}`}>

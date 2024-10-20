@@ -29,6 +29,9 @@ class JewelryService {
     public async getJewelry(jewelryId: string): Promise<Jewelry> {
         try {
             const url = `${this.path}/jewelry/${jewelryId}`;
+
+            console.log("jewelryId:", jewelryId);
+
             console.log("url:", url);
 
             const result = await axios.get(url, { withCredentials: true });
