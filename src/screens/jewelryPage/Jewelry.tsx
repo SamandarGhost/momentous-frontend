@@ -15,7 +15,7 @@ import { retrieveJewelries } from "./selector";
 import { useDispatch, useSelector } from "react-redux";
 import ProductService from "../../app/services/JewelryService";
 import { ProductCollection } from "../../lib/enums/product.enum";
-import { serverApi } from "../../lib/config";
+import { Messages, serverApi } from "../../lib/config";
 import { useHistory } from "react-router-dom";
 import { CartItem } from "../../lib/types/search";
 import SearchIcon from '@mui/icons-material/Search';
@@ -34,6 +34,9 @@ import JewelryService from "../../app/services/JewelryService";
 import { ProductGender } from "../../lib/types/common";
 import { JewelryMaterial, JewelryType } from "../../lib/enums/jewelry.enum";
 import OurStore from "../homePage/OurStore";
+import { useGlobals } from "../../app/hooks/useGlobals";
+import OrderService from "../../app/services/OrderService";
+import { sweetErrorHandling } from "../../lib/sweetAlert";
 /* Redux Slice and Selector */
 const actionDispatch = (dispatch: Dispatch) => ({
     setJewelries: (data: Jewelry[]) => dispatch(setJewelries(data)),
@@ -49,6 +52,7 @@ interface ProductsProps {
 
 export default function JewelryPage(props: ProductsProps) {
     const { onAdd } = props;
+    const authMember = useGlobals();
     const { setJewelries } = actionDispatch(useDispatch());
     const { jewelries } = useSelector(jewelriesRetriever);
     const [jewelrySearch, setJewelrySearch] = useState<JewelryInquiry>({
@@ -284,14 +288,13 @@ export default function JewelryPage(props: ProductsProps) {
                         jewelries.map((jewelry: Jewelry) => {
                             const imagePath = `${serverApi}/${jewelry?.jewelryImages[0]}`;
                             return (
-                                <Stack key={jewelry?._id} className={'card'} onClick={() => jewelryDetailHandler(jewelry._id)} >
+                                <Stack key={jewelry?._id} className={'card'} >
                                     <Stack className={'card-img'}>
                                         <img src={imagePath} className={'img'} alt="" />
                                     </Stack>
                                     <Box className={'buttons'}>
                                         <Box className={'sale-btns'}>
-                                            <Button className={'buy'}>Buy Now
-                                                <AttachMoneyOutlinedIcon className={'icons'} />
+                                            <Button className={'buy'} onClick={() => jewelryDetailHandler(jewelry._id)}>Detail Page
                                             </Button>
                                             <Button className={'add-to'}
                                                 onClick={(e) => {
